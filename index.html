@@ -103,12 +103,6 @@ ul.checks li::before{content:"✔"; position:absolute; left:0; top:0; color:var(
 .btn .icon{width:18px; height:18px}
 .fab .icon{width:24px; height:24px}
 .fab .icon svg{fill:#fff}
-
-/* Colored brand icons (IMG) */
-.brand-icon{width:18px;height:18px;display:inline-block;vertical-align:-3px;object-fit:contain}
-.btn .brand-icon{width:18px;height:18px;margin-right:8px}
-.fab .brand-icon{width:26px;height:26px}
-
 /* Service hours near top hero */
 .service-hours-top { font-size: 14px; color: var(--sub); margin-top: 6px; }
 @media (max-width:820px){ .service-hours-top { text-align:center; } }
@@ -137,15 +131,11 @@ ul.checks li::before{content:"✔"; position:absolute; left:0; top:0; color:var(
 }
 
 
-/* Auto-hide menu after jumping (CSS fallback for modern Safari/Chromium) */
+/* Hide top nav on mobile; keep only mid-page quick nav */
 @media (max-width:820px){
-  body:has(:target) .nav-links{ display:none !important; }
-}
-
-
-/* Ensure menu closes after selecting a link (fallback) */
-@media (max-width:820px){
-  .nav-links a { pointer-events:auto; }
+  nav{ display:none !important; }
+  body{ padding-top:0 !important; }
+  :root{ --nav-h: 0px; }
 }
 
 /* Mobile */
@@ -155,19 +145,6 @@ ul.checks li::before{content:"✔"; position:absolute; left:0; top:0; color:var(
   .steps{grid-template-columns:1fr 1fr}
   .guide-index{grid-template-columns:1fr}
 }
-
-/* --- Mobile nav hamburger fix --- */
-.menu-toggle { position:absolute; left:-9999px; }
-.hamburger { display:none; cursor:pointer; background:#fff; border:1px solid var(--line); border-radius:8px; padding:8px; }
-.hamburger .bar { display:block; width:22px; height:2px; background:var(--ink); margin:4px 0; border-radius:2px; }
-
-@media (max-width:820px){
-  .hamburger { display:block; z-index:120; }
-  .nav-links { display:none; flex-direction:column; background:#fff; padding:12px; border-bottom:1px solid var(--line); }
-  .menu-toggle:checked ~ .nav-links { display:flex; }
-  .nav-links a { padding:10px 12px; border:1px solid var(--line); border-radius:8px; margin:4px 0; }
-}
-
 </style>
 </head>
 <body>
@@ -190,6 +167,7 @@ ul.checks li::before{content:"✔"; position:absolute; left:0; top:0; color:var(
 <div class="announce" id="announce">
   <div class="container">
     <div>📦 預購空運約 14–28 個工作天（不含例假日），到貨即依序出貨。</div>
+    <button class="close" id="announceClose" aria-label="關閉公告">×</button>
   </div>
 </div>
 
@@ -200,8 +178,14 @@ ul.checks li::before{content:"✔"; position:absolute; left:0; top:0; color:var(
       <h1>PSの貼心日和所</h1>
       <div class="slogan">與我們一起，讓美麗成為習慣❤️</div>
       <div class="ctas">
-        <a class="btn" href="https://www.instagram.com/psbeauty_1425?igsh=Y2lhNzdnamcwdmlk&utm_source=qr" target="_blank" rel="noopener" aria-label="前往 Instagram 官方帳號"><img class="brand-icon" src="data:image/png;base64,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" alt="Instagram">前往 Instagram</a>
-        <a class="btn primary" href="https://lin.ee/cNmKAha" target="_blank" rel="noopener" aria-label="加入 LINE 並馬上許願下單"><img class="brand-icon" src="data:image/png;base64,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" alt="LINE">加入 LINE ‧ 馬上許願/下單</a>
+        <a class="btn" href="https://www.instagram.com/psbeauty_1425?igsh=Y2lhNzdnamcwdmlk&utm_source=qr" target="_blank" rel="noopener" aria-label="前往 Instagram 官方帳號"><span class="icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="currentColor" role="img" focusable="false">
+  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a5.5 5.5 0 1 1 0 11a5.5 5.5 0 0 1 0-11Zm0 2a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7Zm5.25-.75a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5Z"/>
+</svg></span>前往 Instagram</a>
+        <a class="btn primary" href="https://lin.ee/cNmKAha" target="_blank" rel="noopener" aria-label="加入 LINE 並馬上許願下單"><span class="icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="currentColor" role="img" focusable="false">
+  <path d="M12 3.1c-5.3 0-9.6 3.3-9.6 7.5c0 3 2.2 5.6 5.3 6.8c.2.1.4.3.4.6l-.2 2c0 .3.3.6.6.5c2.8-1 5.1-2.1 6.1-2.7c4.1-.1 7.4-3.4 7.4-7.5c0-4.1-4.3-7.5-9.6-7.5ZM7.4 9.1h1.2v4.1H7.4V9.1Zm2.5 0h1.2v3h1.7v1.1H9.9V9.1Zm4.3 0h-1.2v4.1h3.1v-1.1h-1.9V9.1Zm3.5 0h-1.2v4.1h1.2V9.1Z"/>
+</svg></span>加入 LINE ‧ 馬上許願/下單</a>
       </div>
       <p class="service-hours-top">🕘 客服服務時間：09:00～21:00（非服務時間回覆將順延）</p>
     </div>
@@ -279,7 +263,7 @@ ul.checks li::before{content:"✔"; position:absolute; left:0; top:0; color:var(
   <section class="section" id="payment">
     <h2>付款方式</h2>
     <div class="card">
-      <p>銀行匯款，請於3日內完成匯款；將轉帳／匯款明細截圖，傳送官方LINE；收到對帳通知就OK囉～</p>
+      <p>銀行匯款，請於3日內完成匯款；將轉帳／匯款明細截圖，傳送IG小盒子；收到對帳通知就OK囉～</p>
       <ul>
         <li>※ 本賣場僅於確認訂單成立後，主動提供指定匯款帳號</li>
         <li>※ 請勿聽信其他來源或陌生訊息通知</li>
@@ -362,9 +346,7 @@ ul.checks li::before{content:"✔"; position:absolute; left:0; top:0; color:var(
         您在商品頁看到的金額就是最後付款金額，不會再額外收費，請安心 💕。</p></div>
 
 </div>
-      <div class="card"><h3>Q：為什麼預購商品不能放到賣場？</h3><p>預購商品屬於客製化 需要先付款我才能幫你下單；賣場主要提供現貨商品上架 支援超商取貨付款。為保障雙方權益 預購商品一定要先銀行轉帳 而現貨才會提供賣場取貨付款的管道。</p></div>
-</div>
-</section>
+  </section>
 
 
   <!-- QR moved to bottom -->
@@ -395,8 +377,8 @@ ul.checks li::before{content:"✔"; position:absolute; left:0; top:0; color:var(
 
 <!-- Floating quick buttons -->
 <div class="fab-wrap" aria-label="快速聯絡按鈕">
-  <a class="fab" href="https://lin.ee/cNmKAha" target="_blank" rel="noopener" aria-label="透過 LINE 聯絡" title="LINE 聊聊"><img class="brand-icon" src="data:image/png;base64,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" alt="LINE"></a>
-  <a class="fab" href="https://www.instagram.com/psbeauty_1425?igsh=Y2lhNzdnamcwdmlk&utm_source=qr" target="_blank" rel="noopener" aria-label="前往 Instagram" title="Instagram"><img class="brand-icon" src="data:image/png;base64,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" alt="Instagram"></a>
+  <a class="fab" href="https://lin.ee/cNmKAha" target="_blank" rel="noopener" aria-label="透過 LINE 聯絡" title="LINE 聊聊"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M12 3.1c-5.3 0-9.6 3.3-9.6 7.5c0 3 2.2 5.6 5.3 6.8c.2.1.4.3.4.6l-.2 2c0 .3.3.6.6.5c2.8-1 5.1-2.1 6.1-2.7c4.1-.1 7.4-3.4 7.4-7.5c0-4.1-4.3-7.5-9.6-7.5ZM7.4 9.1h1.2v4.1H7.4V9.1Zm2.5 0h1.2v3h1.7v1.1H9.9V9.1Zm4.3 0h-1.2v4.1h3.1v-1.1h-1.9V9.1Zm3.5 0h-1.2v4.1h1.2V9.1Z"/></svg></span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M12 3.1c-5.3 0-9.6 3.3-9.6 7.5c0 3 2.2 5.6 5.3 6.8c.2.1.4.3.4.6l-.2 2c0 .3.3.6.6.5c2.8-1 5.1-2.1 6.1-2.7c4.1-.1 7.4-3.4 7.4-7.5c0-4.1-4.3-7.5-9.6-7.5ZM7.4 9.1h1.2v4.1H7.4V9.1Zm2.5 0h1.2v3h1.7v1.1H9.9V9.1Zm4.3 0h-1.2v4.1h3.1v-1.1h-1.9V9.1Zm3.5 0h-1.2v4.1h1.2V9.1Z"/></svg></span></a>
+  <a class="fab" href="https://www.instagram.com/psbeauty_1425?igsh=Y2lhNzdnamcwdmlk&utm_source=qr" target="_blank" rel="noopener" aria-label="前往 Instagram" title="Instagram"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a5.5 5.5 0 1 1 0 11a5.5 5.5 0 0 1 0-11Zm0 2a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7Zm5.25-.75a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5Z"/></svg></span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a5.5 5.5 0 1 1 0 11a5.5 5.5 0 0 1 0-11Zm0 2a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7Zm5.25-.75a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5Z"/></svg></span></a>
 </div>
 
 <script>
@@ -444,29 +426,6 @@ sections.forEach(s => io.observe(s));
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
   // Close on hash change (jumped to section)
   window.addEventListener('hashchange', close);
-})();
-
-
-// --- Auto-close mobile menu (robust) ---
-(function(){
-  const cb = document.getElementById('menuToggle');
-  const nav = document.querySelector('.nav-links');
-  if(!cb || !nav) return;
-  function close(){ cb.checked = false; }
-  // Close when clicking any nav link
-  nav.addEventListener('click', (e)=>{ if(e.target.closest('a')) close(); }, {passive:true});
-  // Close when clicking outside
-  document.addEventListener('click', (e)=>{
-    const inMenu = e.target.closest('.nav-links');
-    const inHam  = e.target.closest('.hamburger');
-    if(!inMenu && !inHam) close();
-  }, {passive:true});
-  // Close on Esc
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
-  // Close on URL hash change (jump to section)
-  window.addEventListener('hashchange', close);
-  // Close after initial load if already at a target (e.g., from a shared link)
-  if(location.hash) close();
 })();
 
 </script>
