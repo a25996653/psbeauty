@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隱私權政策 | PSの貼心日和所</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f8f9fa', 100: '#f1f3f5', 200: '#e9ecef', 300: '#dee2e6',
+                            400: '#ced4da', 500: '#adb5bd', 600: '#868e96', 700: '#495057',
+                            800: '#343a40', 900: '#212529', accent: '#D4B59D', accentLight: '#E8DCD1',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'Inter', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { -webkit-font-smoothing: antialiased; }
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+        .policy-section h3 {
+            position: relative;
+            padding-left: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .policy-section h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10%;
+            height: 80%;
+            width: 4px;
+            background-color: #D4B59D;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-brand-50 flex flex-col min-h-screen bg-noise relative">
+
+    <!-- 導覽列 (精簡版) -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-brand-100">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <!-- 這裡已經幫您替換為 logo.png -->
+                    <img src="logo.png" alt="PS Logo" class="w-10 h-10 rounded-full object-cover shadow-sm">
+                    <div class="flex flex-col">
+                        <span class="font-serif text-brand-900 text-xl md:text-2xl tracking-widest font-medium">PSの貼心日和所</span>
+                    </div>
+                </a>
+                <a href="index.html" class="text-sm text-brand-600 hover:text-brand-accent transition-colors tracking-widest">
+                    <i class="fas fa-arrow-left mr-1"></i> 回首頁
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 隱私權政策內容 -->
+    <main class="flex-grow py-16">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-brand-100 policy-section">
+                
+                <div class="text-center mb-10">
+                    <p class="font-serif text-brand-400 tracking-[0.2em] text-sm mb-4">PRIVACY POLICY</p>
+                    <h1 class="font-serif text-3xl text-brand-900 tracking-widest mb-6">隱私權保護政策</h1>
+                    <div class="w-16 h-0.5 bg-brand-accent mx-auto"></div>
+                </div>
+
+                <div class="text-brand-700 font-light leading-relaxed space-y-6 text-sm md:text-base">
+                    <p>PSの貼心日和所（以下簡稱「本品牌」）非常重視您的隱私與個人資料保護。</p>
+                    <p>本網站主要提供品牌介紹、購物說明、常見問題與官方聯絡入口。本網站本身不設置會員系統、購物車或表單，也不會直接在官網內蒐集您的姓名、電話、地址或付款資料。為保障您的權益，特此說明我們的隱私權保護方針：</p>
+
+                    <h3 class="font-serif text-lg text-brand-800 tracking-wide font-medium">一、 個人資料提供方式</h3>
+                    <p>若您需要詢問商品、許願預購、下單或售後服務，可能會透過以下平台主動提供個人資料：</p>
+                    <ul class="list-disc pl-6 space-y-2 text-brand-600">
+                        <li>LINE 官方帳號</li>
+                        <li>Instagram 私訊</li>
+                        <li>現貨賣場平台</li>
+                        <li>其他您主動聯繫本品牌之管道</li>
+                    </ul>
+                    <p>您提供的資料可能包含姓名、聯絡方式、收件資訊、訂單內容或其他為完成交易所需之資訊。</p>
+
+                    <h3 class="font-serif text-lg text-brand-800 tracking-wide font-medium">二、 資料使用目的</h3>
+                    <p>您主動提供的資料，我們將僅用於以下用途：</p>
+                    <ul class="list-disc pl-6 space-y-2 text-brand-600">
+                        <li>商品詢問與訂購處理</li>
+                        <li>預購商品確認與代購聯繫</li>
+                        <li>付款確認與對帳事宜</li>
+                        <li>商品出貨與物流配送</li>
+                        <li>售後服務與訂單相關通知</li>
+                        <li>其他必要之客戶聯繫</li>
+                    </ul>
+                    <p class="text-brand-800 font-medium">本品牌承諾，絕不會任意出售、交換或出租您的個人資料給其他團體或個人。</p>
+
+                    <h3 class="font-serif text-lg text-brand-800 tracking-wide font-medium">三、 第三方平台政策</h3>
+                    <p>本網站可能包含連結至 LINE、Instagram、現貨賣場或其他第三方服務平台。當您點擊連結並前往第三方平台後，相關資料之蒐集、使用與保護，將依各該平台之隱私權政策與服務條款辦理，本品牌不負連帶責任。</p>
+
+                    <h3 class="font-serif text-lg text-brand-800 tracking-wide font-medium">四、 Cookie 與瀏覽資料</h3>
+                    <p>本網站目前未主動設置會員追蹤系統或個人化廣告追蹤。但若未來使用網站流量分析工具（如 Google Analytics），可能會透過 Cookie 或類似技術了解網站的整體瀏覽情形，此數據僅作為改善網站內容與提升使用體驗之參考，不涉及您的個人身分資料。</p>
+
+                    <h3 class="font-serif text-lg text-brand-800 tracking-wide font-medium">五、 資料保護機制</h3>
+                    <p>對於您透過官方 LINE、Instagram 或賣場平台提供之個人資料，本品牌將僅於完成交易與服務的必要範圍內使用，並盡力採取合理措施妥善保護，避免不當揭露、遺失或外流。</p>
+
+                    <h3 class="font-serif text-lg text-brand-800 tracking-wide font-medium">六、 政策修改與公告</h3>
+                    <p>本品牌保留隨時修改本隱私權政策之權利，因應法規或營運需求修正後之內容，將直接公告於本網站，不另行個別通知。建議您隨時留意相關修改。</p>
+
+                    <h3 class="font-serif text-lg text-brand-800 tracking-wide font-medium">七、 聯絡我們</h3>
+                    <p>若您對本隱私權政策或個人資料使用有任何疑問，歡迎隨時透過官方 LINE 或 Instagram 與我們聯繫，我們將盡快為您解答。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-white pt-10 pb-10 border-t border-brand-100">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-brand-500 font-light tracking-wider">
+                <p class="mb-4 md:mb-0">
+                    Copyright &copy;2025 PSの貼心日和所・日本代購・保養保健. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/psbeauty_1425?utm_source=qr" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-600 transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://lin.ee/paqZOSh" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-600 transition-colors">
+                        <i class="fab fa-line text-xl"></i>
+                    </a>
+                    <a href="https://www.threads.com/@psbeauty_1425?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-600 transition-colors">
+                        <i class="fa-brands fa-threads text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
