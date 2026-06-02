@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSの貼心日和所｜日本代購 · 保養保健</title>
+    
+    <meta name="description" content="為您保養保健資訊與嚴選日本好物，體驗零時差的日式生活。">
+    <meta name="keywords" content="日本代購, 保養知識, 生活雜貨, PSの貼心日和所">
+    <meta name="author" content="PSの貼心日和所">
+    <link rel="canonical" href="https://www.psbeauty1425.com/">
+    <link rel="icon" type="image/jpeg" href="SEO.jpg">
+    <link rel="apple-touch-icon" href="SEO.jpg">
+<meta property="og:title" content="PSの貼心日和所｜日本代購 · 保養保健">
+    <meta property="og:description" content="為您保養保健資訊與嚴選日本好物，體驗零時差的日式生活。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.psbeauty1425.com/">
+    <meta property="og:image" content="SEO.jpg">
+    <meta property="og:site_name" content="PSの貼心日和所">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#Fdfcfb',
+                100: '#F7f5f2',
+                200: '#Ebe5de',
+                300: '#Dcd2c6',
+                400: '#C8b8a8',
+                500: '#B09C88',
+                600: '#94806c',
+                700: '#756353',
+                800: '#5c4d40',
+                900: '#463930',
+                accent: '#8c9e8e'
+              }
+            },
+            fontFamily: {
+                serif: ['"Noto Serif TC"', '"Playfair Display"', 'serif'],
+                sans: ['"Noto Sans TC"', 'sans-serif'],
+            },
+            letterSpacing: {
+                'widest': '.25em',
+            },
+            animation: {
+                'marquee': 'marquee 35s linear infinite',
+            },
+            keyframes: {
+                marquee: {
+                    '0%': { transform: 'translateX(100%)' },
+                    '100%': { transform: 'translateX(-100%)' }
+                }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: #4a4a4a;
+            background-color: #faf9f7;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Noto Serif TC', 'Playfair Display', serif;
+        }
+
+        /* 優化捲軸 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #faf9f7; }
+        ::-webkit-scrollbar-thumb { background: #Dcd2c6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B09C88; }
+        
+        /* 淡入動畫 */
+        .fade-in {
+            animation: fadeIn 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 0.2em;
+        }
+
+        .image-mask { border-radius: 2px 40px 2px 40px; }
+        
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #B09C88;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .bg-noise { position: relative; }
+        .bg-noise::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* 客製化區塊標題左側裝飾線 */
+        .section-title-deco {
+            position: relative;
+            padding-left: 1rem;
+        }
+        .section-title-deco::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10%;
+            height: 80%;
+            width: 4px;
+            background-color: #8c9e8e; /* 使用 accent 顏色 */
+            border-radius: 2px;
+        }
+
+        /* 手機版關於我們分段與閱讀優化 */
+        .about-text p {
+            margin: 0 0 1.15rem;
+            line-height: 2.05;
+        }
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 裝飾分隔文字避免手機版過大、過寬 */
+        .rule-divider {
+            font-size: 0.75rem;
+            line-height: 1.6;
+            letter-spacing: 0.08em;
+            word-break: keep-all;
+        }
+
+        @media (max-width: 640px) {
+            .about-text {
+                font-size: 1.02rem;
+                letter-spacing: 0.04em;
+            }
+            .about-text p {
+                margin-bottom: 1rem;
+                line-height: 2;
+            }
+            .rule-divider {
+                font-size: 0.66rem;
+                letter-spacing: 0.02em;
+                line-height: 1.55;
+                white-space: normal;
+            }
+        }
+
+    </style>
+</head>
+<body class="bg-brand-50 flex flex-col min-h-screen bg-noise relative">
+<div class="fixed bottom-0 left-0 w-full bg-brand-500/90 backdrop-blur-sm text-white text-sm py-2 z-[60] overflow-hidden">
+        <div class="whitespace-nowrap inline-block animate-marquee">
+           <span class="mx-4">📦 預購空運約 14–28 個工作天（不含例假日），到貨即依序出貨。 &nbsp;&nbsp;|&nbsp;&nbsp; 🕘 客服服務時間：09:00～21:00（非服務時間回覆將順延）</span>
+            <span class="mx-4">📦 預購空運約 14–28 個工作天（不含例假日），到貨即依序出貨。 &nbsp;&nbsp;|&nbsp;&nbsp; 🕘 客服服務時間：09:00～21:00（非服務時間回覆將順延）</span>
+        </div>
+    </div>
+<header class="bg-brand-50/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-500 border-b border-transparent" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+<div class="flex-shrink-0 flex flex-col justify-center z-10 gap-1">
+                    <div class="flex items-center gap-3">
+<img src="logo.png" alt="PS Logo" class="w-10 h-10 rounded-full shadow-sm object-cover border border-brand-200 bg-white" onerror="this.src='https://placehold.co/40x40/B09C88/FFFFFF?text=PS'">
+                        <a href="#" class="text-2xl md:text-3xl font-serif text-brand-900 hover:text-brand-600 transition-colors tracking-widest font-medium">
+                            PSの貼心日和所
+                        </a>
+                    </div>
+<p class="text-brand-accent font-serif tracking-widest text-xs ml-[3.25rem]">與我們一起，讓美麗成為習慣❤️</p>
+                </div>
+<nav class="hidden md:flex space-x-8 lg:space-x-10 items-center z-10">
+                    <a href="#concept" class="nav-link text-brand-800 hover:text-brand-600 px-2 py-2 text-sm tracking-widest transition-colors">品牌理念</a>
+                    <a href="#services" class="nav-link text-brand-800 hover:text-brand-600 px-2 py-2 text-sm tracking-widest transition-colors">服務介紹</a>
+                    <a href="#products" class="nav-link text-brand-800 hover:text-brand-600 px-2 py-2 text-sm tracking-widest transition-colors">好物嚴選</a>
+                    <a href="#shopping-info" class="nav-link text-brand-800 hover:text-brand-600 px-2 py-2 text-sm tracking-widest transition-colors">購物說明</a>
+                    <a href="#contact" class="border border-brand-500 text-brand-800 px-6 py-2 text-sm tracking-widest hover:bg-brand-500 hover:text-white transition-all duration-300">
+                        CONTACT
+                    </a>
+                </nav>
+<div class="md:hidden flex items-center z-10">
+                    <button type="button" id="mobile-menu-btn" class="text-brand-800 hover:text-brand-500 focus:outline-none p-2 transition-colors">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+<div id="mobile-menu" class="hidden md:hidden bg-brand-50 border-t border-brand-200 absolute w-full shadow-lg transition-all duration-300 origin-top transform scale-y-0 opacity-0">
+            <div class="px-6 pt-4 pb-8 space-y-4 text-center">
+                <a href="#concept" class="block py-3 text-sm tracking-widest text-brand-800 hover:text-brand-500">品牌理念</a>
+                <div class="w-12 h-px bg-brand-200 mx-auto"></div>
+                <a href="#services" class="block py-3 text-sm tracking-widest text-brand-800 hover:text-brand-500">服務介紹</a>
+                <div class="w-12 h-px bg-brand-200 mx-auto"></div>
+                <a href="#products" class="block py-3 text-sm tracking-widest text-brand-800 hover:text-brand-500">好物嚴選</a>
+                <div class="w-12 h-px bg-brand-200 mx-auto"></div>
+<a href="#shopping-info" class="block py-3 text-sm tracking-widest text-brand-800 hover:text-brand-500">購物說明</a>
+                <div class="w-12 h-px bg-brand-200 mx-auto"></div>
+                <a href="#contact" class="block py-3 mt-4 text-sm tracking-widest border border-brand-500 text-brand-800 hover:bg-brand-500 hover:text-white transition-colors">CONTACT</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow z-10 relative pb-10">
+
+<section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+<div class="w-full lg:w-5/12 flex flex-col justify-center order-2 lg:order-1 relative">
+<div class="hidden lg:block absolute -left-8 top-0 vertical-text text-brand-accent font-serif text-sm tracking-[0.2em] opacity-80">
+                            日本のくらしと、心温まる日常。
+                        </div>
+
+                        <div class="fade-in">
+                            <p class="font-serif text-brand-400 italic mb-4 tracking-widest text-sm">Life & Beauty</p>
+                            <h1 class="text-4xl sm:text-5xl lg:text-5xl font-serif text-brand-900 leading-[1.4] tracking-wider mb-6">
+                                發現日常的<br>
+                                <span class="text-brand-500 italic font-light">細緻與美好</span>
+                            </h1>
+<p class="text-brand-accent font-serif tracking-widest mb-6 lg:hidden">日本のくらしと、心温まる日常。</p>
+                            
+                            <div class="w-12 h-px bg-brand-400 mb-8"></div>
+                            
+                            <p class="text-base text-brand-700 leading-loose tracking-wide mb-10 font-light max-w-md">
+                                日本代購 🇯🇵 生活雜貨・藥妝<br>
+                                專注於日本直送、真實心得分享<br>
+                                從健康保健到懶人保養，為您嚴選<br>
+                                提升生活質感的每一件好物。
+                            </p>
+                            
+                            <div class="flex flex-col sm:flex-row gap-6">
+                                <a href="#products" class="group flex items-center text-sm tracking-widest text-brand-900 font-medium">
+                                    <span class="border-b border-brand-900 pb-1 group-hover:border-brand-500 group-hover:text-brand-500 transition-colors">探索精選</span>
+                                    <i class="fa-solid fa-arrow-right-long ml-3 text-xs group-hover:translate-x-2 transition-transform group-hover:text-brand-500"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<div class="w-full lg:w-7/12 relative order-1 lg:order-2 h-[500px] sm:h-[600px] fade-in delay-200">
+                        <div class="absolute right-0 top-0 w-3/4 h-4/5 overflow-hidden image-mask shadow-sm z-10">
+                            <img src="home1.jpg" alt="日系生活風格" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                        </div>
+                        <div class="absolute left-0 bottom-0 w-1/2 h-3/5 overflow-hidden image-mask shadow-md z-20 border-4 border-brand-50">
+                            <img src="home2.jpg" alt="保養品" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                        </div>
+                        <div class="absolute right-1/4 -bottom-6 w-32 h-32 bg-brand-200 rounded-full mix-blend-multiply opacity-50 z-0"></div>
+                        <div class="absolute -left-6 top-1/4 w-24 h-24 bg-brand-accent rounded-full mix-blend-multiply opacity-20 z-0"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<section id="concept" class="py-24 bg-white relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+                <p class="font-serif text-brand-400 tracking-[0.2em] text-sm mb-4">ABOUT US</p>
+                <h2 class="text-3xl font-serif text-brand-900 tracking-widest mb-10">關於我們</h2>
+                
+                <div class="about-text text-brand-700 font-light tracking-wide md:px-12 text-left md:text-center">
+                    <p>🌷 歡迎走進 PSの貼心日和所 ☁️</p>
+                    <p>我們陪你慢慢挑、輕輕用，一起把「生活」變得更貼心。</p>
+                    <p>我們相信，美麗不該是壓力，而是一種可以慢慢建立的「生活習慣」。PS 會親自挑選每一樣來自日本的藥妝與生活好物 💕，也會不定期分享實用的保養知識與我自己真實的使用心得。</p>
+                    <p>🎁 精選日貨 × 保養知識 × 開箱分享 × 愛用好物</p>
+                    <p>不只是代購，我們希望從選品到售後，都能像朋友一樣陪你走每一步 👣 你的日常，也可以柔柔地、美美地，慢慢變得更貼心 🌷</p>
+                </div>
+                
+                <img src="welcome.jpg" alt="Concept" class="mt-16 w-full max-w-2xl mx-auto h-64 object-cover image-mask opacity-90">
+            </div>
+        </section>
+<section id="services" class="py-24 bg-brand-100/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <p class="font-serif text-brand-400 tracking-[0.2em] text-sm mb-4">SERVICES</p>
+                    <h2 class="text-3xl font-serif text-brand-900 tracking-widest">提供服務</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+                    <div class="flex flex-col items-center text-center fade-in delay-100 group">
+                        <div class="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-8 shadow-sm group-hover:-translate-y-2 transition-transform duration-500">
+                            <i class="fa-solid fa-plane-departure text-2xl text-brand-500"></i>
+                        </div>
+                        <h3 class="text-lg font-serif text-brand-900 tracking-widest mb-4">日本直送代購</h3>
+                        <p class="text-sm text-brand-700 leading-relaxed font-light">
+                            每週結單，快速空運來台。<br>
+                            為您把關第一手熱門藥妝與生活好物，<br>
+                            零時差送達您手中。
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center fade-in delay-200 group">
+                        <div class="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-8 shadow-sm group-hover:-translate-y-2 transition-transform duration-500">
+                            <i class="fa-solid fa-leaf text-2xl text-brand-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-serif text-brand-900 tracking-widest mb-4">真實保養心得</h3>
+                        <p class="text-sm text-brand-700 leading-relaxed font-light">
+                            拒絕盲目跟風，<br>
+                            提供親身試用後的真實評價，<br>
+                            幫您找到最適合的保養方案。
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center fade-in delay-300 group">
+                        <div class="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-8 shadow-sm group-hover:-translate-y-2 transition-transform duration-500">
+                            <i class="fa-solid fa-mug-hot text-2xl text-brand-600"></i>
+                        </div>
+                        <h3 class="text-lg font-serif text-brand-900 tracking-widest mb-4">專屬許願客製化</h3>
+                        <p class="text-sm text-brand-700 leading-relaxed font-light">
+                            找不到心儀的日本商品嗎？<br>
+                            歡迎帶圖私訊告訴我們，<br>
+                            為您提供專屬報價與代購尋物服務。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="products" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 fade-in">
+                    <div>
+                        <p class="font-serif text-brand-400 tracking-[0.2em] text-sm mb-4">SELECTED SERIES</p>
+                        <h2 class="text-3xl font-serif text-brand-900 tracking-widest">精選系列</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                    <a href="https://myship.7-11.com.tw/general/detail/GM2508304160111" target="_blank" class="group cursor-pointer fade-in delay-100 block">
+                        <div class="relative overflow-hidden mb-6 bg-brand-50 p-6 flex items-center justify-center h-[350px] rounded-lg">
+                            <img src="pix1.jpg" alt="現貨賣場" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute top-0 left-0 bg-brand-800 text-white text-xs tracking-widest px-3 py-1.5 vertical-text h-24 flex items-center rounded-br-lg">HOT</div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xs text-brand-400 tracking-widest mb-2">IN STOCK</p>
+                            <h4 class="text-base font-serif text-brand-900 tracking-wider mb-2">現貨賣場</h4>
+                            <p class="text-sm text-brand-600 font-light">少量現貨！</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/p/DTfeYhOkfWd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="group cursor-pointer fade-in delay-200 block">
+                        <div class="relative overflow-hidden mb-6 bg-brand-50 p-6 flex items-center justify-center h-[350px] rounded-lg">
+                            <img src="pix2.jpg" alt="PS 愛用分享" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xs text-brand-400 tracking-widest mb-2">PS PICKS</p>
+                            <h4 class="text-base font-serif text-brand-900 tracking-wider mb-2">PS 愛用分享</h4>
+                            <p class="text-sm text-brand-600 font-light">點擊前往 IG 查看真實心得</p>
+                        </div>
+                    </a>
+
+                    <a href="https://lin.ee/paqZOSh" target="_blank" class="group cursor-pointer fade-in delay-300 block">
+                        <div class="relative overflow-hidden mb-6 bg-brand-50 p-6 flex items-center justify-center h-[350px] rounded-lg">
+                            <img src="pix3.jpg" alt="許願池" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute top-0 left-0 bg-brand-accent text-white text-xs tracking-widest px-3 py-1.5 vertical-text h-24 flex items-center rounded-br-lg">NEW</div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xs text-brand-400 tracking-widest mb-2">WISHLIST</p>
+                            <h4 class="text-base font-serif text-brand-900 tracking-wider mb-2">專屬許願</h4>
+                            <p class="text-sm text-brand-600 font-light">找不到想要的商品？截圖私訊為您報價</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+<section id="reviews" class="py-24 bg-brand-50/50">
+            <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+                <div class="text-center mb-16 fade-in">
+                    <p class="font-serif text-brand-400 tracking-[0.2em] text-sm mb-4">REVIEWS</p>
+                    <h2 class="text-3xl font-serif text-brand-900 tracking-widest">好評回饋</h2>
+                    <p class="text-sm text-brand-500 font-light mt-4">來自客人最真實的回饋與心意</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-xl shadow-sm border border-brand-100 fade-in delay-100 flex flex-col h-full hover:shadow-md transition-shadow">
+                        <div class="flex text-brand-accent text-sm mb-4 justify-center">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+<div class="w-full h-64 overflow-hidden rounded-md bg-brand-50 mb-5 border border-brand-100 flex items-center justify-center p-2">
+                            <img src="review1.jpg" alt="客人好評截圖" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <p class="text-brand-700 font-light text-sm leading-loose mb-4 text-center flex-grow">"老闆我收到貨了～謝謝你幫我訂購😊
+這款是朋友推薦我的，他說自己吃了之後戴隱眼比較不會那麼乾
+所以這次也跟著買來試試看，期待之後的感受～
+而且價格真的比我想像中便宜很多，超划算，謝謝老闆！❤️❤️"</p>
+                        <div class="mt-auto pt-4 border-t border-brand-50">
+                            <p class="text-xs text-brand-400 font-medium tracking-widest text-center">— LINE 新客戶</p>
+                        </div>
+                    </div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-brand-100 fade-in delay-200 flex flex-col h-full hover:shadow-md transition-shadow">
+                        <div class="flex text-brand-accent text-sm mb-4 justify-center">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+<div class="w-full h-64 overflow-hidden rounded-md bg-brand-50 mb-5 border border-brand-100 flex items-center justify-center p-2">
+                            <img src="review2.jpg" alt="客人好評截圖" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <p class="text-brand-700 font-light text-sm leading-loose mb-4 text-center flex-grow">"收到商品啦！包裝超級用心❤️許願商品很快就幫我找到了✨"</p>
+                        <div class="mt-auto pt-4 border-t border-brand-50">
+                            <p class="text-xs text-brand-400 font-medium tracking-widest text-center">— LINE 老客戶</p>
+                        </div>
+                    </div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-brand-100 fade-in delay-300 flex flex-col h-full hover:shadow-md transition-shadow">
+                        <div class="flex text-brand-accent text-sm mb-4 justify-center">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+<div class="w-full h-64 overflow-hidden rounded-md bg-brand-50 mb-5 border border-brand-100 flex items-center justify-center p-2">
+                            <img src="review3.jpg" alt="客人好評截圖" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <p class="text-brand-700 font-light text-sm leading-loose mb-4 text-center flex-grow">"代購的速度很快，價格也很透明清楚
+完全沒有隱藏費用，買起來讓人覺得非常安心！🥰"</p>
+                        <div class="mt-auto pt-4 border-t border-brand-50">
+                            <p class="text-xs text-brand-400 font-medium tracking-widest text-center">— LINE 新客戶</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+<section id="shopping-info" class="py-20 bg-brand-50/50 border-t border-brand-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center mb-12 fade-in">
+                    <p class="font-serif text-brand-400 tracking-[0.2em] text-sm mb-4">INFORMATION</p>
+                    <h2 class="text-3xl font-serif text-brand-900 tracking-widest mb-4">購物說明</h2>
+                    <p class="text-sm text-red-400 font-light">📝 下單前請務必詳閱「購物須知」與「退換貨須知」</p>
+                </div>
+
+                <div class="space-y-8 fade-in delay-100">
+<div class="bg-white rounded-xl shadow-sm border border-brand-100 overflow-hidden">
+                        <div class="bg-brand-100/30 px-6 py-4 border-b border-brand-100">
+                            <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">服務項目與販售模式</h3>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3 text-sm text-brand-700 font-light">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-brand-accent mt-1 mr-3"></i> 許願池預購商品 + 少量現貨商品～</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-brand-accent mt-1 mr-3"></i> 有想要的商品都可以私訊許願單！</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-brand-accent mt-1 mr-3"></i> 預購需等待約14~28個工作天</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-brand-accent mt-1 mr-3"></i> 現貨商品售完即需預購</li>
+                            </ul>
+                        </div>
+                    </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white rounded-xl shadow-sm border border-brand-100 overflow-hidden">
+                            <div class="bg-brand-100/30 px-6 py-4 border-b border-brand-100">
+                                <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">訂購方式 (下單流程)</h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="space-y-4">
+                                    <div class="flex items-center p-3 bg-brand-50 rounded">
+                                        <span class="text-brand-500 font-serif font-bold mr-4 w-12">Step 1</span>
+                                        <span class="text-sm text-brand-700 font-light">🖼️ 傳商品圖 + 數量 / 規格</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-brand-50 rounded">
+                                        <span class="text-brand-500 font-serif font-bold mr-4 w-12">Step 2</span>
+                                        <span class="text-sm text-brand-700 font-light">💬 等候報價確認</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-brand-50 rounded">
+                                        <span class="text-brand-500 font-serif font-bold mr-4 w-12">Step 3</span>
+                                        <span class="text-sm text-brand-700 font-light">💳 匯款完成後安排出貨 / 訂購</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-brand-50 rounded">
+                                        <span class="text-brand-500 font-serif font-bold mr-4 w-12">Step 4</span>
+                                        <span class="text-sm text-brand-700 font-light">🚚 現貨 1-3 天內寄出；預購 14-28 個工作天到貨</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<div class="space-y-8">
+<div class="bg-white rounded-xl shadow-sm border border-brand-100 overflow-hidden">
+                                <div class="bg-brand-100/30 px-6 py-4 border-b border-brand-100">
+                                    <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">收費說明</h3>
+                                </div>
+                                <div class="p-6">
+                                    <ul class="space-y-3 text-sm text-brand-700 font-light">
+                                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-accent mt-1 mr-3"></i> 售價已包含商品費、空運、關稅</li>
+                                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-accent mt-1 mr-3"></i> 超取需另加 $60 運費</li>
+                                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-accent mt-1 mr-3"></i> 價格請以商品頁標示為主</li>
+                                    </ul>
+                                </div>
+                            </div>
+<div class="bg-white rounded-xl shadow-sm border border-brand-100 overflow-hidden">
+                                <div class="bg-brand-100/30 px-6 py-4 border-b border-brand-100">
+                                    <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">付款方式</h3>
+                                </div>
+                                <div class="p-6">
+                                    <p class="text-sm text-brand-700 font-light mb-4">銀行匯款，請於3日內完成匯款；將轉帳 / 匯款明細截圖，傳送官方LINE；收到對帳通知就OK囉～</p>
+                                    <ul class="list-disc pl-5 space-y-2 text-sm text-brand-600 font-light mb-4">
+                                        <li>本賣場僅於確認訂單成立後，主動提供指定匯款帳號</li>
+                                        <li>請勿聽信其他來源或陌生訊息通知</li>
+                                    </ul>
+                                    <p class="text-xs text-red-400 bg-red-50 p-2 rounded">安全提醒：匯款帳號僅以 官方 LINE 提供。若收到陌生訊息請勿操作，並立即私訊我們確認。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-xl shadow-sm border border-brand-100 overflow-hidden">
+                            <div class="bg-brand-100/30 px-6 py-4 border-b border-brand-100">
+                                <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">出貨時間說明</h3>
+                            </div>
+                            <div class="p-6">
+                                <ul class="list-disc pl-5 space-y-2 text-sm text-brand-700 font-light">
+                                    <li>空運至少約14~28個工作天（不含例假日）</li>
+                                    <li>抵台後將依序出貨</li>
+                                    <li>現貨商品：付款完成後1~3天內寄出</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm border border-brand-100 overflow-hidden">
+                            <div class="bg-brand-100/30 px-6 py-4 border-b border-brand-100">
+                                <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">配送方式</h3>
+                            </div>
+                            <div class="p-6">
+                                <ul class="list-disc pl-5 space-y-2 text-sm text-brand-700 font-light">
+                                    <li>採7-11超商取貨，運費$60；出貨後約2~3天配達指定門市</li>
+                                    <li>請於7天內取貨；逾期未取需補運費$80重新寄出</li>
+                                    <li>若逾期2次，將列入黑名單處理，無法再次服務</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+<div id="shopping-rules" class="bg-white rounded-xl shadow-sm border border-brand-100 overflow-hidden scroll-mt-28">
+                        <div class="bg-brand-100/30 px-6 py-4 border-b border-brand-100">
+                            <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">購物須知</h3>
+                        </div>
+                        <div class="p-6">
+                            <ol class="list-decimal pl-5 space-y-3 text-sm text-brand-700 font-light">
+                                <li>因與日本同步販售，若商品缺貨將主動通知並全額退款</li>
+                                <li>數量若不足，將依匯款順序出貨</li>
+                                <li>訂單成立後即無法更改、取消，請於結帳前再次確認訂單內容</li>
+                                <li>因直接與日本官方下訂，若取消訂單或逾期未付款，將列入黑名單處理，無法再次服務</li>
+                            </ol>
+                            <p class="rule-divider text-center text-xs text-brand-400 mt-6 tracking-widest">---ฅ՞• •՞ฅ--- 感謝配合與理解 ---ฅ՞• •՞ฅ---</p>
+                        </div>
+                    </div>
+<div class="bg-white rounded-xl shadow-sm border border-brand-100 overflow-hidden">
+                        <div class="bg-brand-100/30 px-6 py-4 border-b border-brand-100">
+                            <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">退換貨須知</h3>
+                        </div>
+                        <div class="p-6">
+                            <ol class="list-decimal pl-5 space-y-3 text-sm text-brand-700 font-light">
+                                <li>本賣場商品為「日本代購服務」，依消費者保護法第19條規定，不適用7日鑑賞期</li>
+                                <li>商品如遇重大瑕疵或錯寄，請於收到後24小時內私訊聯繫，我們將協助處理退換事宜。開箱時請全程錄影存證，且商品需保持全新完整 (含包裝與附件)，否則無法受理退換貨</li>
+                                <li>取貨後如需換貨，請於7日內與客服聯繫</li>
+                                <li>換貨處理時間約需10–20個工作天；因個人主觀因素（如不喜歡、尺寸不合、色差）恕無法受理退換貨</li>
+                            </ol>
+                            <p class="rule-divider text-center text-xs text-brand-400 mt-6 tracking-widest">---ฅ՞• •՞ฅ--- 下單即表示同意以上規定 ---ฅ՞• •՞ฅ---</p>
+                        </div>
+                    </div>
+<div class="bg-white rounded-xl shadow-sm border border-brand-100 overflow-hidden">
+                        <div class="bg-brand-100/30 px-6 py-4 border-b border-brand-100">
+                            <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">安心保證</h3>
+                        </div>
+                        <div class="p-6 text-center">
+                            <p class="text-base text-brand-700 font-medium tracking-wide">
+                                拒絕來路不明渠道，重視保存與包裝，分享真實使用心得，不誇大療效。
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+<section class="py-20 bg-white border-t border-brand-100">
+             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-in">
+                    <p class="font-serif text-brand-400 tracking-[0.2em] text-sm mb-4">Q & A</p>
+                    <h2 class="text-3xl font-serif text-brand-900 tracking-widest">常見問題 FAQ</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-in delay-200">
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：怎麼私訊？</h4>
+                        <p class="text-sm text-brand-600 font-light">點下方 <span class="font-medium text-brand-800">加入 LINE 或 前往 Instagram</span>，或掃描 QR Code 都可以。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：付款方式？</h4>
+                        <p class="text-sm text-brand-600 font-light">以 銀行匯款 為主（下單後提供帳號），對帳完成即出貨。帳號僅由官方 LINE 提供，請勿聽信陌生訊息。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：可以用 LINE Pay 轉帳嗎？</h4>
+                        <p class="text-sm text-brand-600 font-light">目前僅接受銀行匯款，暫不支援 LINE Pay、街口支付等方式。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：多久會到貨？</h4>
+                        <p class="text-sm text-brand-600 font-light">現貨 1–3 天寄出；預購 14–28 個工作天（不含例假日）。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：運費怎麼算？</h4>
+                        <p class="text-sm text-brand-600 font-light">7-11 超取 $60；若逾期未取，需補 $80 再寄。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：可以取消或修改訂單嗎？</h4>
+                        <p class="text-sm text-brand-600 font-light">訂單成立後無法更改或取消，下單前請再次確認。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：商品保證正品嗎？</h4>
+                        <p class="text-sm text-brand-600 font-light">我們只透過日本官方 / 正規通路採購，拒絕來路不明來源，安心有保障。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：如果收到有瑕疵怎麼辦？</h4>
+                        <p class="text-sm text-brand-600 font-light">請於收到後 24 小時內私訊並提供「開箱全程錄影」，我們會協助處理退換貨。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：購物前需要注意什麼？</h4>
+                        <p class="text-sm text-brand-600 font-light">下單即表示同意本頁〈購物須知〉與〈退換貨須知〉，請務必詳閱。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：價格怎麼計算？會不會有隱藏費用？</h4>
+                        <p class="text-sm text-brand-600 font-light">我們的定價已經包含 <span class="font-medium text-brand-800">商品費用 + 國際運費 + 關稅 + 代購服務費</span>，您在商品頁看到的金額就是最後付款金額，不會再額外收費，請安心💕。</p>
+                    </div>
+<div class="bg-brand-50 p-6 rounded-lg border border-brand-100 md:col-span-2">
+                        <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：為什麼預購商品不能放到賣場？</h4>
+                        <p class="text-sm text-brand-600 font-light">預購商品屬於客製化，需要先付款才能下單；賣場主要提供現貨商品上架，支援超商取貨付款。為保障雙方權益，預購商品一定要先銀行轉帳，僅現貨才會提供賣場取貨付款的管道。</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+<section class="py-20 bg-brand-900 text-white text-center">
+            <div class="max-w-3xl mx-auto px-4 fade-in">
+                <i class="fa-brands fa-instagram text-3xl mb-6 text-brand-300"></i>
+                <h3 class="text-2xl font-serif tracking-widest mb-4">Follow Us</h3>
+                <p class="font-light tracking-wide text-brand-200 mb-8 leading-relaxed">
+                    追蹤我們的 Instagram 獲取最新資訊<br>
+                    與日常保養小秘訣。
+                </p>
+                <a href="https://www.instagram.com/psbeauty_1425?utm_source=qr" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-brand-900 px-8 py-3 text-sm tracking-widest font-medium hover:bg-brand-100 transition-colors rounded">
+                    @psbeauty_1425
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="bg-brand-50 pt-20 pb-20 border-t border-brand-200 z-10 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
+<div class="md:col-span-5 lg:col-span-4">
+                    <div class="flex items-center gap-3 mb-6">
+<img src="logo.png" alt="PS Logo" class="w-10 h-10 rounded-full shadow-sm object-cover border border-brand-200 bg-white" onerror="this.src='https://placehold.co/40x40/B09C88/FFFFFF?text=PS'">
+                        <a href="#" class="text-2xl font-serif text-brand-900 tracking-widest block">
+                            PSの貼心日和所
+                        </a>
+                    </div>
+                    <p class="text-brand-accent font-serif tracking-widest text-sm mb-4">與我們一起，讓美麗成為習慣❤️</p>
+                    <p class="text-brand-700 font-light leading-relaxed mb-8 text-sm">
+                        日本代購 🇯🇵 生活雜貨・藥妝<br>
+                        日本直送・真實心得分享<br>
+                        健康保健・懶人保養
+                    </p>
+                    <div class="flex space-x-5">
+                        <a href="https://lin.ee/paqZOSh" target="_blank" rel="noopener noreferrer" class="text-brand-500 hover:text-brand-900 transition-colors">
+                            <i class="fa-brands fa-line text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/psbeauty_1425?utm_source=qr" target="_blank" rel="noopener noreferrer" class="text-brand-500 hover:text-brand-900 transition-colors">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+<div class="md:col-span-3 lg:col-span-2 lg:col-start-7">
+                    <h4 class="font-serif text-brand-900 tracking-widest mb-6 text-sm">MENU</h4>
+                    <ul class="space-y-4 text-sm font-light">
+                        <li><a href="#concept" class="text-brand-600 hover:text-brand-900 transition-colors">品牌理念</a></li>
+                        <li><a href="#services" class="text-brand-600 hover:text-brand-900 transition-colors">服務介紹</a></li>
+                        <li><a href="#products" class="text-brand-600 hover:text-brand-900 transition-colors">好物嚴選</a></li>
+<li><a href="#shopping-info" class="text-brand-600 hover:text-brand-900 transition-colors">購物說明</a></li>
+                    </ul>
+                </div>
+<div class="md:col-span-4 lg:col-span-4">
+                    <h4 class="font-serif text-brand-900 tracking-widest mb-6 text-sm">CONTACT</h4>
+                    <p class="text-sm font-medium text-brand-800 mb-2">
+                        📱 想許願或有問題？歡迎透過 LINE / Instagram 與我們聯繫 💬
+                    </p>
+                    <p class="text-sm font-light text-brand-700 mb-6 leading-relaxed">
+                        我們將盡快為您服務。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://lin.ee/paqZOSh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full sm:w-auto bg-[#06C755] text-white px-6 py-2.5 rounded text-sm tracking-wider hover:bg-[#05b34c] transition-colors shadow-sm">
+                            <i class="fa-brands fa-line mr-2 text-lg"></i> 加入 LINE 好友
+                        </a>
+                         <a href="https://www.instagram.com/psbeauty_1425?utm_source=qr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full sm:w-auto bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white px-6 py-2.5 rounded text-sm tracking-wider hover:opacity-90 transition-opacity shadow-sm">
+                            <i class="fa-brands fa-instagram mr-2 text-lg"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-brand-200 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-brand-500 font-light tracking-wider">
+                <p class="mb-4 md:mb-0">Copyright &copy;2025 PSの貼心日和所・日本代購・保養保健. All Rights Reserved.</p>
+                <div class="space-x-6">
+                    <a href="#shopping-rules" class="hover:text-brand-800 transition-colors">購物須知</a>
+                    <a href="privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-brand-800 transition-colors">隱私權政策</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. 手機版選單切換
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = mobileMenuBtn.querySelector('i');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        setTimeout(() => {
+                            mobileMenu.classList.remove('scale-y-0', 'opacity-0');
+                            mobileMenu.classList.add('scale-y-100', 'opacity-100');
+                        }, 10);
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-xmark');
+                    } else {
+                        mobileMenu.classList.remove('scale-y-100', 'opacity-100');
+                        mobileMenu.classList.add('scale-y-0', 'opacity-0');
+                        setTimeout(() => { mobileMenu.classList.add('hidden'); }, 300);
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                });
+
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('scale-y-100', 'opacity-100');
+                        mobileMenu.classList.add('scale-y-0', 'opacity-0');
+                        setTimeout(() => { mobileMenu.classList.add('hidden'); }, 300);
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    });
+                });
+            }
+
+            // 2. 導覽列滾動效果
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    navbar.classList.add('border-brand-200', 'bg-brand-50/95');
+                    navbar.classList.remove('border-transparent', 'bg-brand-50/80');
+                } else {
+                    navbar.classList.remove('border-brand-200', 'bg-brand-50/95');
+                    navbar.classList.add('border-transparent', 'bg-brand-50/80');
+                }
+            }, { passive: true });
+
+            // 3. Intersection Observer (淡入動畫)
+            const fadeElements = document.querySelectorAll('.fade-in');
+            if ('IntersectionObserver' in window) {
+                fadeElements.forEach(el => {
+                    el.style.animation = 'none';
+                    el.style.opacity = '0';
+                });
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animation = ''; 
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+                fadeElements.forEach(el => observer.observe(el));
+            } else {
+                fadeElements.forEach(el => el.style.opacity = '1');
+            }
+        });
+    </script>
+</body>
+</html>
