@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-Hant" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSの貼心日和所｜日本代購 · 保養保健</title>
-    
-    <meta name="description" content="為您保養保健資訊與嚴選日本好物，體驗零時差的日式生活。">
-    <meta name="keywords" content="日本代購, 保養知識, 生活雜貨, PSの貼心日和所">
-    <meta name="author" content="PSの貼心日和所">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- ================= 基本 SEO 設定 ================= -->
+  <title>PSの貼心日和所｜日本代購 · 保養保健</title>
+  <meta name="description" content="為您保養保健資訊與嚴選日本好物，體驗零時差的日式生活。" />
+  <meta name="keywords" content="日本代購, 保養知識, 生活雜貨, PSの貼心日和所" />
+  <meta name="author" content="PSの貼心日和所" />
+
+  <!-- ================= 網址圖標 (Favicon) 設定 ================= -->
     <link rel="canonical" href="https://www.psbeauty1425.com/">
     <link rel="icon" type="image/jpeg" href="SEO.jpg">
     <link rel="apple-touch-icon" href="SEO.jpg">
@@ -167,31 +170,105 @@
         }
 
         @media (max-width: 640px) {
-            .about-text {
-                font-size: 1.02rem;
-                letter-spacing: 0.04em;
-            }
-            .about-text p {
-                margin-bottom: 1rem;
-                line-height: 2;
-            }
-            .rule-divider {
-                font-size: 0.66rem;
-                letter-spacing: 0.02em;
-                line-height: 1.55;
-                white-space: normal;
-            }
+    .about-text {
+        font-size: 1.02rem;
+        letter-spacing: 0.04em;
+    }
+
+    .about-text p {
+        margin-bottom: 1rem;
+        line-height: 2;
+    }
+
+    .rule-divider {
+        font-size: 10px !important;
+        letter-spacing: 0 !important;
+        line-height: 1.5;
+        white-space: nowrap;
+        text-align: center;
+    }
+}
+
+    
+        /* ========== PS 限定動畫：首頁飛機、關於我們櫻花、無縫公告 ========== */
+        #hero-flight > .max-w-7xl { position: relative; z-index: 1; }
+        .ps-flight-stage {
+            position: absolute; inset: 0; overflow: hidden;
+            pointer-events: none; z-index: 0;
+        }
+        .ps-flight {
+            position: absolute;
+            left: -230px; bottom: 16%; width: clamp(125px, 16vw, 205px);
+            height: auto; opacity: 0;
+            animation: psFlightTakeoff 9s linear 0.5s infinite;
+        }
+        @keyframes psFlightTakeoff {
+            0%   { transform: translate3d(0, 55px, 0); opacity: 0; }
+            13%  { opacity: 0.9; }
+            82%  { opacity: 0.9; }
+            100% { transform: translate3d(calc(100vw + 460px), -210px, 0); opacity: 0; }
+        }
+
+        #concept { position: relative; isolation: isolate; }
+        #concept > .max-w-4xl { position: relative; z-index: 1; }
+        .ps-sakura-layer {
+            position: absolute; inset: 0; overflow: hidden;
+            pointer-events: none; z-index: 0;
+        }
+        .ps-sakura {
+            position: absolute; top: -70px;
+            left: var(--x); width: var(--size); height: auto;
+            opacity: 0.45;
+            animation: psSakuraFall var(--duration) linear var(--delay) infinite;
+        }
+        @keyframes psSakuraFall {
+            0%   { top: -70px; transform: translate3d(-12px,0,0) rotate(0deg); }
+            50%  { transform: translate3d(var(--wind),0,0) rotate(170deg); }
+            100% { top: calc(100% + 70px); transform: translate3d(12px,0,0) rotate(360deg); }
+        }
+
+        /* 每組公告寬度相同，滑過一組時，第二組已無縫接上。 */
+        .ps-marquee-track {
+            display: flex; flex-wrap: nowrap; width: max-content;
+            animation: psTickerSeamless var(--ticker-duration, 35s) linear infinite;
+            will-change: transform;
+        }
+        .ps-marquee-group { display:flex; flex: none; white-space:nowrap; }
+        .ps-marquee-item {
+            display: inline-block; flex: none; white-space: nowrap;
+            padding: 0 16px;
+        }
+        @keyframes psTickerSeamless {
+            0% { transform: translate3d(0,0,0); }
+            100% { transform: translate3d(-50%,0,0); }
+        }
+        @media (max-width: 640px) {
+            .ps-flight { width: 125px; bottom: 40%; }
+            .ps-sakura { opacity: .33; }
         }
 
     </style>
 </head>
 <body class="bg-brand-50 flex flex-col min-h-screen bg-noise relative">
-<div class="fixed bottom-0 left-0 w-full bg-brand-500/90 backdrop-blur-sm text-white text-sm py-2 z-[60] overflow-hidden">
-        <div class="whitespace-nowrap inline-block animate-marquee">
-           <span class="mx-4">📦 預購空運約 14–28 個工作天（不含例假日），到貨即依序出貨。 &nbsp;&nbsp;|&nbsp;&nbsp; 🕘 客服服務時間：09:00～21:00（非服務時間回覆將順延）</span>
-            <span class="mx-4">📦 預購空運約 14–28 個工作天（不含例假日），到貨即依序出貨。 &nbsp;&nbsp;|&nbsp;&nbsp; 🕘 客服服務時間：09:00～21:00（非服務時間回覆將順延）</span>
+
+<!-- 底部無縫公告跑馬燈 -->
+<div id="psTicker"
+     class="fixed bottom-0 left-0 w-full bg-brand-500/90 backdrop-blur-sm text-white text-sm py-2 z-[60] overflow-hidden"
+     aria-label="預購配送與客服公告">
+
+    <div id="psTickerTrack" class="ps-marquee-track">
+
+        <div id="psTickerGroup" class="ps-marquee-group">
+            <span class="ps-marquee-item">
+                📦 預購空運約 14–28 個工作天（不含例假日），到貨即依序出貨。
+                &nbsp; | &nbsp;
+                🕘 客服服務時間：09:00～21:00（非服務時間回覆將順延）
+                &nbsp; | &nbsp;
+            </span>
         </div>
+
     </div>
+</div>
 <header class="bg-brand-50/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-500 border-b border-transparent" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
@@ -237,7 +314,16 @@
 
     <main class="flex-grow z-10 relative pb-10">
 
-<section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+
+<section id="hero-flight"
+         class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+
+    <!-- Q版飛機動畫 -->
+    <div class="ps-flight-stage" aria-hidden="true">
+        <img src="./plane.png"
+             alt=""
+             class="ps-flight">
+    </div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 <div class="w-full lg:w-5/12 flex flex-col justify-center order-2 lg:order-1 relative">
@@ -284,6 +370,33 @@
             </div>
         </section>
 <section id="concept" class="py-24 bg-white relative">
+
+<!-- ABOUT US 櫻花飄落動畫 -->
+<div class="ps-sakura-layer" aria-hidden="true">
+
+    <img src="./sakura_petal_1.png" class="ps-sakura" alt=""
+         style="--x:8%;--size:25px;--duration:12s;--delay:-3s;--wind:45px;">
+
+    <img src="./sakura_petal_2.png" class="ps-sakura" alt=""
+         style="--x:23%;--size:22px;--duration:15s;--delay:-9s;--wind:-35px;">
+
+    <img src="./sakura_flower_1.png" class="ps-sakura" alt=""
+         style="--x:36%;--size:31px;--duration:17s;--delay:-5s;--wind:55px;">
+
+    <img src="./sakura_petal_3.png" class="ps-sakura" alt=""
+         style="--x:52%;--size:24px;--duration:13s;--delay:-11s;--wind:-40px;">
+
+    <img src="./sakura_petal_4.png" class="ps-sakura" alt=""
+         style="--x:67%;--size:22px;--duration:16s;--delay:-2s;--wind:48px;">
+
+    <img src="./sakura_flower_2.png" class="ps-sakura" alt=""
+         style="--x:81%;--size:28px;--duration:18s;--delay:-13s;--wind:-45px;">
+
+    <img src="./sakura_petal_1.png" class="ps-sakura" alt=""
+         style="--x:91%;--size:20px;--duration:14s;--delay:-7s;--wind:-28px;">
+
+</div>
+
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
                 <p class="font-serif text-brand-400 tracking-[0.2em] text-sm mb-4">ABOUT US</p>
                 <h2 class="text-3xl font-serif text-brand-900 tracking-widest mb-10">關於我們</h2>
@@ -569,12 +682,21 @@
                             <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">退換貨須知</h3>
                         </div>
                         <div class="p-6">
-                            <ol class="list-decimal pl-5 space-y-3 text-sm text-brand-700 font-light">
-                                <li>本賣場商品為「日本代購服務」，依消費者保護法第19條規定，不適用7日鑑賞期</li>
-                                <li>商品如遇重大瑕疵或錯寄，請於收到後24小時內私訊聯繫，我們將協助處理退換事宜。開箱時請全程錄影存證，且商品需保持全新完整 (含包裝與附件)，否則無法受理退換貨</li>
-                                <li>取貨後如需換貨，請於7日內與客服聯繫</li>
-                                <li>換貨處理時間約需10–20個工作天；因個人主觀因素（如不喜歡、尺寸不合、色差）恕無法受理退換貨</li>
-                            </ol>
+
+<ol class="list-decimal pl-5 space-y-3 text-sm text-brand-700 font-light">
+    <li>
+        本店預購採個別委託代購方式，依顧客指定之商品、規格及數量向日本商家採購，非一般現貨販售。符合《通訊交易解除權合理例外情事適用準則》第2條第2款「依消費者要求所為之客製化給付」，且已事先告知之訂單，不適用《消費者保護法》第19條之7日無理由解除權；其他商品則依相關法令辦理。
+    </li>
+    <li>
+        商品如遇重大瑕疵、錯寄或與訂購內容不符，請盡量於收到後24小時內私訊聯繫，我們將協助處理退換貨事宜。開箱時建議全程錄影存證，並保留商品、原包裝及附件，以利確認問題與後續處理。未提供開箱錄影不影響依法享有之權利。
+    </li>
+    <li>
+        取貨後如需換貨，請盡量於7日內與客服聯繫，並提供訂單資訊及商品問題說明，以利盡速協助處理。依法享有之相關權利不受上述建議聯繫期限限制。
+    </li>
+    <li>
+        換貨處理時間約需10–20個工作天，實際時間依日本商家供貨與國際物流情況調整。對於依法不適用7日無理由解除權之個別委託預購商品，因個人主觀因素（如不喜歡、尺寸不合、色差等）恕不提供無理由退換貨；若商品有瑕疵、錯寄或與約定內容不符，仍依法協助處理。現貨賣場商品則依適用之消費者保護法令及賣場規範辦理。
+    </li>
+</ol>
                             <p class="rule-divider text-center text-xs text-brand-400 mt-6 tracking-widest">---ฅ՞• •՞ฅ--- 下單即表示同意以上規定 ---ฅ՞• •՞ฅ---</p>
                         </div>
                     </div>
@@ -638,7 +760,7 @@
                     </div>
 <div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
                         <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：價格怎麼計算？會不會有隱藏費用？</h4>
-                        <p class="text-sm text-brand-600 font-light">我們的定價已經包含 <span class="font-medium text-brand-800">商品費用 + 國際運費 + 關稅 + 代購服務費</span>，您在商品頁看到的金額就是最後付款金額，不會再額外收費，請安心💕。</p>
+                        <p class="text-sm text-brand-600 font-light">我們的定價已經包含 <span class="font-medium text-brand-800">商品費用 + 國際運費 + 關稅 + 代購服務費</span>，台灣境內配送運費另計。我們會於付款前告知應付總金額，不會額外收取未事先告知的費用，請安心 💕</p>
                     </div>
 <div class="bg-brand-50 p-6 rounded-lg border border-brand-100 md:col-span-2">
                         <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：為什麼預購商品不能放到賣場？</h4>
@@ -716,11 +838,22 @@
                 </div>
             </div>
             
-            <div class="border-t border-brand-200 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-brand-500 font-light tracking-wider">
-                <p class="mb-4 md:mb-0">Copyright &copy;2025 PSの貼心日和所・日本代購・保養保健. All Rights Reserved.</p>
-                <div class="space-x-6">
-                    <a href="#shopping-rules" class="hover:text-brand-800 transition-colors">購物須知</a>
-                    <a href="privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-brand-800 transition-colors">隱私權政策</a>
+            <div class="border-t border-brand-200 pt-8 flex flex-col xl:flex-row justify-between items-center gap-4 text-center xl:text-left text-xs text-brand-500 font-light tracking-wider">
+
+<div class="copyright min-w-0 text-center xl:text-left leading-relaxed">
+    <p>
+        Copyright &copy; 2025–<span id="copyright-year">2026</span>
+        PSの貼心日和所・日本代購・保養保健. All Rights Reserved.
+    </p>
+    <p>
+        PSの貼心日和所｜本站內容版權所有，未經授權請勿轉載或使用。
+    </p>
+</div>
+
+                    <nav aria-label="頁尾連結" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 shrink-0">
+                        <a href="#shopping-rules" class="hover:text-brand-800 transition-colors">購物須知</a>
+                        <a href="privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-brand-800 transition-colors">隱私權政策</a>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -801,5 +934,61 @@
             }
         });
     </script>
+
+    <script>
+    // 跑馬燈自動填滿整個螢幕，再用相同內容接續，避免跑出空白區。
+    document.addEventListener('DOMContentLoaded', function () {
+        const viewport = document.getElementById('psTicker');
+        const track = document.getElementById('psTickerTrack');
+        const group = document.getElementById('psTickerGroup');
+        if (!viewport || !track || !group) return;
+
+        const sourceItem = group.querySelector('.ps-marquee-item');
+        if (!sourceItem) return;
+        const itemTemplate = sourceItem.cloneNode(true);
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        function buildSeamlessTicker() {
+            // 暫停原動畫，從一則公告重新量測，避免螢幕轉向後出現空檔。
+            track.style.animation = 'none';
+            group.replaceChildren(itemTemplate.cloneNode(true));
+            track.replaceChildren(group);
+
+            // 至少填滿一個視窗，再額外留一則；不足時持續補入同一句公告。
+            const needWidth = viewport.clientWidth + itemTemplate.getBoundingClientRect().width;
+            let copies = 1;
+            while (group.scrollWidth < needWidth && copies < 50) {
+                group.appendChild(itemTemplate.cloneNode(true));
+                copies++;
+            }
+
+            const secondGroup = group.cloneNode(true);
+            secondGroup.removeAttribute('id');
+            secondGroup.setAttribute('aria-hidden', 'true');
+            track.appendChild(secondGroup);
+            track.style.setProperty('--ticker-duration', Math.max(15, group.scrollWidth / 52).toFixed(2) + 's');
+            // 重新計算樣式後才恢復，確保回到第零幀並平順播放。
+            void track.offsetWidth;
+            track.style.animation = '';
+        }
+
+        buildSeamlessTicker();
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(buildSeamlessTicker, 180);
+        }, {passive:true});
+    });
+    </script>
+
+
+    <!-- 版權起始年固定為 2025，結束年份自動取當前年份 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const yearEl = document.getElementById('copyright-year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+        });
+    </script>
+
 </body>
 </html>
