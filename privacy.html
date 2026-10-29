@@ -132,11 +132,18 @@
     <!-- 頁尾 -->
     <footer class="bg-white pt-10 pb-10 border-t border-brand-100">
         <div class="container mx-auto px-4 md:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-brand-500 font-light tracking-wider">
-                <p class="mb-4 md:mb-0">
-                    Copyright &copy;2025 PSの貼心日和所・日本代購・保養保健. All Rights Reserved.
-                </p>
-                <div class="flex space-x-6">
+            <div class="flex flex-col xl:flex-row justify-between items-center gap-4 text-center xl:text-left text-xs text-brand-500 font-light tracking-wider">
+
+<div class="copyright min-w-0 text-center xl:text-left leading-relaxed">
+    <p>
+        Copyright &copy; 2025–<span id="copyright-year">2026</span>
+        PSの貼心日和所・日本代購・保養保健. All Rights Reserved.
+    </p>
+    <p>
+        PSの貼心日和所｜本站內容版權所有，未經授權請勿轉載或使用。
+    </p>
+</div>
+                <div class="flex items-center justify-center gap-x-6 gap-y-2 shrink-0">
                     <a href="https://www.instagram.com/psbeauty_1425?utm_source=qr" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-600 transition-colors">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
@@ -150,6 +157,15 @@
             </div>
         </div>
     </footer>
+
+
+    <!-- 版權起始年固定為 2025，結束年份自動取當前年份 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const yearEl = document.getElementById('copyright-year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+        });
+    </script>
 
 </body>
 </html>
