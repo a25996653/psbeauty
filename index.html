@@ -354,20 +354,30 @@
                                 提升生活質感的每一件好物。
                             </p>
                             
-                            <div class="flex flex-col sm:flex-row gap-6">
-                                <a href="#products" class="group flex items-center text-sm tracking-widest text-brand-900 font-medium">
-                                    <span class="border-b border-brand-900 pb-1 group-hover:border-brand-500 group-hover:text-brand-500 transition-colors">探索精選</span>
-                                    <i class="fa-solid fa-arrow-right-long ml-3 text-xs group-hover:translate-x-2 transition-transform group-hover:text-brand-500"></i>
+                            <!-- 主要詢價入口：手機版直排，桌機並排 -->
+                            <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-5">
+                                <a href="https://lin.ee/paqZOSh" target="_blank" rel="noopener noreferrer"
+                                   class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-brand-800 text-white text-sm tracking-wider hover:bg-brand-700 transition-colors">
+                                    <i class="fa-brands fa-line text-lg" aria-hidden="true"></i> LINE 許願／詢問報價
+                                </a>
+                                <a href="https://www.instagram.com/psbeauty_1425?utm_source=qr" target="_blank" rel="noopener noreferrer"
+                                   class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md border border-brand-500 text-brand-800 text-sm tracking-wider hover:bg-brand-100 transition-colors">
+                                    <i class="fa-brands fa-instagram text-lg" aria-hidden="true"></i> Instagram 私訊
                                 </a>
                             </div>
+                            <p class="text-xs text-brand-600 font-light mb-6 leading-relaxed">傳送商品圖片、數量與規格給我們，就能詢問專屬報價 ♡</p>
+                            <a href="#products" class="group inline-flex items-center text-sm tracking-widest text-brand-900 font-medium">
+                                <span class="border-b border-brand-900 pb-1 group-hover:border-brand-500 group-hover:text-brand-500 transition-colors">探索精選</span>
+                                <i class="fa-solid fa-arrow-right-long ml-3 text-xs group-hover:translate-x-2 transition-transform group-hover:text-brand-500" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
 <div class="w-full lg:w-7/12 relative order-1 lg:order-2 h-[500px] sm:h-[600px] fade-in delay-200">
                         <div class="absolute right-0 top-0 w-3/4 h-4/5 overflow-hidden image-mask shadow-sm z-10">
-                            <img src="home1.jpg" alt="日系生活風格" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                            <img fetchpriority="high" decoding="async" src="home1.jpg" alt="日系生活風格" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
                         </div>
                         <div class="absolute left-0 bottom-0 w-1/2 h-3/5 overflow-hidden image-mask shadow-md z-20 border-4 border-brand-50">
-                            <img src="home2.jpg" alt="保養品" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+                            <img decoding="async" src="home2.jpg" alt="保養品" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
                         </div>
                         <div class="absolute right-1/4 -bottom-6 w-32 h-32 bg-brand-200 rounded-full mix-blend-multiply opacity-50 z-0"></div>
                         <div class="absolute -left-6 top-1/4 w-24 h-24 bg-brand-accent rounded-full mix-blend-multiply opacity-20 z-0"></div>
@@ -415,7 +425,7 @@
                     <p>不只是代購，我們希望從選品到售後，都能像朋友一樣陪你走每一步 👣 你的日常，也可以柔柔地、美美地，慢慢變得更貼心 🌷</p>
                 </div>
                 
-                <img src="welcome.jpg" alt="Concept" class="mt-16 w-full max-w-2xl mx-auto h-64 object-cover image-mask opacity-90">
+                <img loading="lazy" decoding="async" src="welcome.jpg" alt="Concept" class="mt-16 w-full max-w-2xl mx-auto h-64 object-cover image-mask opacity-90">
             </div>
         </section>
 <section id="services" class="py-24 bg-brand-100/50">
@@ -464,6 +474,97 @@
                 </div>
             </div>
         </section>
+        <!-- 購買方式比較：預購與現貨有不同付款與運費規則 -->
+        <section id="purchase-options" class="py-20 bg-brand-50 border-y border-brand-100 scroll-mt-28" aria-labelledby="purchase-title">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <p class="font-serif text-brand-400 tracking-[0.2em] text-sm mb-3">HOW TO ORDER</p>
+                    <h2 id="purchase-title" class="text-3xl font-serif text-brand-900 tracking-widest mb-4">選擇適合你的購買方式</h2>
+                    <p class="text-sm text-brand-700 font-light leading-loose">想找日本好物，或直接挑選現貨？兩種方式都能安心選購。</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <article class="bg-white rounded-xl shadow-sm border border-brand-200 overflow-hidden flex flex-col">
+                        <div class="bg-brand-100/60 px-6 py-5 border-b border-brand-100">
+                            <p class="text-xs text-brand-500 tracking-widest mb-2">PERSONAL ORDER</p>
+                            <h3 class="text-xl font-serif text-brand-900 tracking-widest"><i class="fa-solid fa-plane-departure text-brand-600 mr-2" aria-hidden="true"></i>預購商品</h3>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <p class="text-sm text-brand-700 font-light leading-loose mb-5">依照你的需求，協助尋找與採購指定日本商品。</p>
+                            <dl class="space-y-4 text-sm leading-relaxed mb-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-[5.5rem_minmax(0,1fr)] gap-x-3 gap-y-1 sm:gap-y-0">
+                                    <dt class="text-brand-500 font-medium">訂購方式</dt>
+                                    <dd class="text-brand-800 min-w-0 break-words">LINE私訊商品圖片、規格與數量</dd>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-[5.5rem_minmax(0,1fr)] gap-x-3 gap-y-1 sm:gap-y-0">
+                                    <dt class="text-brand-500 font-medium">付款方式</dt>
+                                    <dd class="text-brand-800 min-w-0 break-words">確認訂購並收到官方 LINE 提供的匯款資訊後，請於 3 日內完成銀行匯款</dd>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-[5.5rem_minmax(0,1fr)] gap-x-3 gap-y-1 sm:gap-y-0">
+                                    <dt class="text-brand-500 font-medium">採購流程</dt>
+                                    <dd class="text-brand-800 min-w-0 break-words">款項核對完成後，安排向日本商家採購</dd>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-[5.5rem_minmax(0,1fr)] gap-x-3 gap-y-1 sm:gap-y-0">
+                                    <dt class="text-brand-500 font-medium">到貨時間</dt>
+                                    <dd class="text-brand-800 min-w-0 break-words">約 14–28 個工作天（不含例假日），到貨後依序寄出</dd>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-[5.5rem_minmax(0,1fr)] gap-x-3 gap-y-1 sm:gap-y-0">
+                                    <dt class="text-brand-500 font-medium">配送運費</dt>
+                                    <dd class="text-brand-800 min-w-0 break-words">7-11 超取 NT$60</dd>
+                                </div>
+                            </dl>
+                            <!-- 預購商品：詢價提醒 -->
+                            <p class="mt-auto mb-5 pt-4 border-t border-brand-200 text-xs sm:text-sm text-brand-600 font-light leading-relaxed">
+                                <i class="fa-solid fa-circle-info text-brand-accent mr-1"></i>
+                                單純詢價不代表下單，無須付款。
+                            </p>
+                            <a href="https://lin.ee/paqZOSh" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-800 text-white rounded-md text-sm tracking-wide hover:bg-brand-700 transition-colors">
+                                <i class="fa-brands fa-line text-lg" aria-hidden="true"></i> 我要許願／詢問報價
+                            </a>
+                        </div>
+                    </article>
+                    <article class="bg-white rounded-xl shadow-sm border border-brand-200 overflow-hidden flex flex-col">
+                        <div class="bg-brand-100/60 px-6 py-5 border-b border-brand-100">
+                            <p class="text-xs text-brand-500 tracking-widest mb-2">IN STOCK</p>
+                            <h3 class="text-xl font-serif text-brand-900 tracking-widest"><i class="fa-solid fa-box-open text-brand-600 mr-2" aria-hidden="true"></i>現貨賣場</h3>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <p class="text-sm text-brand-700 font-light leading-loose mb-5">少量現貨商品，可直接進入現貨賣場下單。</p>
+                            <dl class="space-y-4 text-sm leading-relaxed mb-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-[5.5rem_minmax(0,1fr)] gap-x-3 gap-y-1 sm:gap-y-0">
+                                    <dt class="text-brand-500 font-medium">訂購方式</dt>
+                                    <dd class="text-brand-800 min-w-0 break-words">前往現貨賣場選購</dd>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-[5.5rem_minmax(0,1fr)] gap-x-3 gap-y-1 sm:gap-y-0">
+                                    <dt class="text-brand-500 font-medium">付款方式</dt>
+                                    <dd class="text-brand-800 min-w-0 break-words">依賣場結帳流程付款，支援超商取貨付款</dd>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-[5.5rem_minmax(0,1fr)] gap-x-3 gap-y-1 sm:gap-y-0">
+                                    <dt class="text-brand-500 font-medium">出貨時間</dt>
+                                    <dd class="text-brand-800 min-w-0 break-words">訂單成立後約 1-3 天內寄出</dd>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-[5.5rem_minmax(0,1fr)] gap-x-3 gap-y-1 sm:gap-y-0">
+                                    <dt class="text-brand-500 font-medium">配送運費</dt>
+                                    <dd class="text-brand-800 min-w-0 break-words">依賣場運費為主（以結帳頁顯示為準）</dd>
+                                </div>
+                            </dl>
+
+                            <!-- 現貨商品提醒 -->
+                            <p class="mt-auto mb-5 pt-4 border-t border-brand-200 text-xs sm:text-sm text-brand-600 font-light leading-relaxed">
+                                <i class="fa-solid fa-circle-info text-brand-accent mr-1"></i>
+                                現貨數量有限，售完需改為預購。
+                            </p>
+
+                            <a href="https://myship.7-11.com.tw/general/detail/GM2508304160111" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center justify-center gap-2 px-5 py-3 border border-brand-500 text-brand-800 rounded-md text-sm tracking-wide hover:bg-brand-100 transition-colors">
+                                <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> 前往現貨賣場
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                <p class="text-center text-xs text-brand-600 font-light leading-relaxed mt-6">預購與現貨的付款及配送方式不同，請以訂單確認資訊與實際賣場結帳頁為準。</p>
+            </div>
+        </section>
         <section id="products" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 fade-in">
@@ -476,7 +577,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
                     <a href="https://myship.7-11.com.tw/general/detail/GM2508304160111" target="_blank" class="group cursor-pointer fade-in delay-100 block">
                         <div class="relative overflow-hidden mb-6 bg-brand-50 p-6 flex items-center justify-center h-[350px] rounded-lg">
-                            <img src="pix1.jpg" alt="現貨賣場" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img loading="lazy" decoding="async" src="pix1.jpg" alt="現貨賣場" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute top-0 left-0 bg-brand-800 text-white text-xs tracking-widest px-3 py-1.5 vertical-text h-24 flex items-center rounded-br-lg">HOT</div>
                         </div>
                         <div class="text-center">
@@ -488,7 +589,7 @@
 
                     <a href="https://www.instagram.com/p/DTfeYhOkfWd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="group cursor-pointer fade-in delay-200 block">
                         <div class="relative overflow-hidden mb-6 bg-brand-50 p-6 flex items-center justify-center h-[350px] rounded-lg">
-                            <img src="pix2.jpg" alt="PS 愛用分享" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img loading="lazy" decoding="async" src="pix2.jpg" alt="PS 愛用分享" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="text-center">
                             <p class="text-xs text-brand-400 tracking-widest mb-2">PS PICKS</p>
@@ -499,7 +600,7 @@
 
                     <a href="https://lin.ee/paqZOSh" target="_blank" class="group cursor-pointer fade-in delay-300 block">
                         <div class="relative overflow-hidden mb-6 bg-brand-50 p-6 flex items-center justify-center h-[350px] rounded-lg">
-                            <img src="pix3.jpg" alt="許願池" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                            <img loading="lazy" decoding="async" src="pix3.jpg" alt="許願池" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute top-0 left-0 bg-brand-accent text-white text-xs tracking-widest px-3 py-1.5 vertical-text h-24 flex items-center rounded-br-lg">NEW</div>
                         </div>
                         <div class="text-center">
@@ -526,7 +627,7 @@
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
 <div class="w-full h-64 overflow-hidden rounded-md bg-brand-50 mb-5 border border-brand-100 flex items-center justify-center p-2">
-                            <img src="review1.jpg" alt="客人好評截圖" class="max-w-full max-h-full object-contain">
+                            <img loading="lazy" decoding="async" src="review1.jpg" alt="客人好評截圖" class="max-w-full max-h-full object-contain">
                         </div>
                         <p class="text-brand-700 font-light text-sm leading-loose mb-4 text-center flex-grow">"老闆我收到貨了～謝謝你幫我訂購😊
 這款是朋友推薦我的，他說自己吃了之後戴隱眼比較不會那麼乾
@@ -541,7 +642,7 @@
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
 <div class="w-full h-64 overflow-hidden rounded-md bg-brand-50 mb-5 border border-brand-100 flex items-center justify-center p-2">
-                            <img src="review2.jpg" alt="客人好評截圖" class="max-w-full max-h-full object-contain">
+                            <img loading="lazy" decoding="async" src="review2.jpg" alt="客人好評截圖" class="max-w-full max-h-full object-contain">
                         </div>
                         <p class="text-brand-700 font-light text-sm leading-loose mb-4 text-center flex-grow">"收到商品啦！包裝超級用心❤️許願商品很快就幫我找到了✨"</p>
                         <div class="mt-auto pt-4 border-t border-brand-50">
@@ -553,7 +654,7 @@
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
 <div class="w-full h-64 overflow-hidden rounded-md bg-brand-50 mb-5 border border-brand-100 flex items-center justify-center p-2">
-                            <img src="review3.jpg" alt="客人好評截圖" class="max-w-full max-h-full object-contain">
+                            <img loading="lazy" decoding="async" src="review3.jpg" alt="客人好評截圖" class="max-w-full max-h-full object-contain">
                         </div>
                         <p class="text-brand-700 font-light text-sm leading-loose mb-4 text-center flex-grow">"代購的速度很快，價格也很透明清楚
 完全沒有隱藏費用，買起來讓人覺得非常安心！🥰"</p>
@@ -601,15 +702,15 @@
                                     </div>
                                     <div class="flex items-center p-3 bg-brand-50 rounded">
                                         <span class="text-brand-500 font-serif font-bold mr-4 w-12">Step 2</span>
-                                        <span class="text-sm text-brand-700 font-light">💬 等候報價確認</span>
+                                        <span class="text-sm text-brand-700 font-light">💬 等候報價，確認購買意願</span>
                                     </div>
                                     <div class="flex items-center p-3 bg-brand-50 rounded">
                                         <span class="text-brand-500 font-serif font-bold mr-4 w-12">Step 3</span>
-                                        <span class="text-sm text-brand-700 font-light">💳 匯款完成後安排出貨 / 訂購</span>
+                                        <span class="text-sm text-brand-700 font-light">💳 確認訂購後，請於 3 日內完成匯款；對帳後安排採購</span>
                                     </div>
                                     <div class="flex items-center p-3 bg-brand-50 rounded">
                                         <span class="text-brand-500 font-serif font-bold mr-4 w-12">Step 4</span>
-                                        <span class="text-sm text-brand-700 font-light">🚚 現貨 1-3 天內寄出；預購 14-28 個工作天到貨</span>
+                                        <span class="text-sm text-brand-700 font-light">🚚 現貨約 1-3 天內寄出；預購約 14-28 個工作天到貨</span>
                                     </div>
                                 </div>
                             </div>
@@ -632,12 +733,14 @@
                                     <h3 class="text-lg font-serif text-brand-800 section-title-deco tracking-widest">付款方式</h3>
                                 </div>
                                 <div class="p-6">
-                                    <p class="text-sm text-brand-700 font-light mb-4">銀行匯款，請於3日內完成匯款；將轉帳 / 匯款明細截圖，傳送官方LINE；收到對帳通知就OK囉～</p>
+                                    <p class="text-sm text-brand-700 font-light mb-4">預購商品採銀行匯款，顧客確認購買並收到本店提供的匯款資訊後，請於 3 日內完成付款，並將轉帳／匯款明細截圖傳送至官方 LINE。款項核對完成後，我們才會安排向日本商家採購。</p>
                                     <ul class="list-disc pl-5 space-y-2 text-sm text-brand-600 font-light mb-4">
-                                        <li>本賣場僅於確認訂單成立後，主動提供指定匯款帳號</li>
-                                        <li>請勿聽信其他來源或陌生訊息通知</li>
+                                        <li>單純詢價不代表下單，也無須付款。</li>
+                                        <li>匯款帳號僅於顧客確認訂購後，由 官方LINE 提供指定帳戶。</li>
+                                        <li>若逾期未完成付款，本次代購申請將失效，不另安排採購或保留商品；如仍有需求，請重新聯繫客服確認。</li>
+                                        <li>請勿聽信其他來源或陌生訊息通知。</li>
                                     </ul>
-                                    <p class="text-xs text-red-400 bg-red-50 p-2 rounded">安全提醒：匯款帳號僅以 官方 LINE 提供。若收到陌生訊息請勿操作，並立即私訊我們確認。</p>
+                                    <p class="text-xs text-red-400 bg-red-50 p-2 rounded">安全提醒：匯款帳號僅以 官方LINE 提供。若收到陌生訊息請勿操作，並立即私訊我們確認。</p>
                                 </div>
                             </div>
                         </div>
@@ -651,7 +754,7 @@
                                 <ul class="list-disc pl-5 space-y-2 text-sm text-brand-700 font-light">
                                     <li>空運至少約14~28個工作天（不含例假日）</li>
                                     <li>抵台後將依序出貨</li>
-                                    <li>現貨商品：付款完成後1~3天內寄出</li>
+                                    <li>現貨商品：訂單確認後約 1-3 天內寄出，實際依購買管道及賣場規定辦理</li>
                                 </ul>
                             </div>
                         </div>
@@ -677,8 +780,8 @@
                             <ol class="list-decimal pl-5 space-y-3 text-sm text-brand-700 font-light">
                                 <li>因與日本同步販售，若商品缺貨將主動通知並全額退款</li>
                                 <li>數量若不足，將依匯款順序出貨</li>
-                                <li>訂單成立後即無法更改、取消，請於結帳前再次確認訂單內容</li>
-                                <li>因直接與日本官方下訂，若取消訂單或逾期未付款，將列入黑名單處理，無法再次服務</li>
+                                <li>預購商品於確認付款並向日本商家完成採購後，原則上不接受因個人因素任意更改或取消。若尚未完成採購，需要修改或取消委託，請儘早聯繫客服確認；依法享有之相關權利不受影響</li>
+                                <li>預購商品採先付款、後採購方式。顧客確認訂購並取得匯款資訊後，請於 3 日內完成付款；逾期未付款，本次代購申請將失效，不另安排採購或保留商品</li>
                             </ol>
                             <p class="rule-divider text-center text-xs text-brand-400 mt-6 tracking-widest">---ฅ՞• •՞ฅ--- 感謝配合與理解 ---ฅ՞• •՞ฅ---</p>
                         </div>
@@ -734,7 +837,7 @@
                     </div>
 <div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
                         <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：付款方式？</h4>
-                        <p class="text-sm text-brand-600 font-light">以 銀行匯款 為主（下單後提供帳號），對帳完成即出貨。帳號僅由官方 LINE 提供，請勿聽信陌生訊息。</p>
+                        <p class="text-sm text-brand-600 font-light">預購商品以銀行匯款為主，確認訂購並收到匯款資訊後，請於 3 日內完成付款，對帳完成後才會安排向日本商家採購。匯款帳號僅由 官方LINE 提供，請勿聽信陌生訊息。現貨商品則依賣場付款流程辦理。</p>
                     </div>
 <div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
                         <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：可以用 LINE Pay 轉帳嗎？</h4>
@@ -750,7 +853,7 @@
                     </div>
 <div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
                         <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：可以取消或修改訂單嗎？</h4>
-                        <p class="text-sm text-brand-600 font-light">訂單成立後無法更改或取消，下單前請再次確認。</p>
+                        <p class="text-sm text-brand-600 font-light">預購商品於完成付款並向日本商家採購後，原則上不接受因個人因素任意取消或修改。若尚未完成採購，請儘早聯繫客服協助確認；相關法定權利不受影響。</p>
                     </div>
 <div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
                         <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：商品保證正品嗎？</h4>
@@ -758,7 +861,7 @@
                     </div>
 <div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
                         <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：如果收到有瑕疵怎麼辦？</h4>
-                        <p class="text-sm text-brand-600 font-light">請於收到後 24 小時內私訊並提供「開箱全程錄影」，我們會協助處理退換貨。</p>
+                        <p class="text-sm text-brand-600 font-light">如遇商品瑕疵、錯寄或與訂購內容不符，請盡量於收到後 24 小時內私訊，並保留商品、包裝與相關照片；建議開箱全程錄影以利查證，未錄影不影響依法享有的權利。我們會協助處理。</p>
                     </div>
 <div class="bg-brand-50 p-6 rounded-lg border border-brand-100">
                         <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：購物前需要注意什麼？</h4>
@@ -770,7 +873,7 @@
                     </div>
 <div class="bg-brand-50 p-6 rounded-lg border border-brand-100 md:col-span-2">
                         <h4 class="font-serif text-brand-800 mb-3 tracking-wide">Q：為什麼預購商品不能放到賣場？</h4>
-                        <p class="text-sm text-brand-600 font-light">預購商品屬於客製化，需要先付款才能下單；賣場主要提供現貨商品上架，支援超商取貨付款。為保障雙方權益，預購商品一定要先銀行轉帳，僅現貨才會提供賣場取貨付款的管道。</p>
+                        <p class="text-sm text-brand-600 font-light">預購商品採個別委託代購方式，需先完成付款，才會向日本商家安排採購；現貨賣場則提供少量現貨商品，可直接下單並依賣場規定付款及取貨。為保障雙方權益，預購商品統一透過官方 LINE 確認訂購與匯款資訊。</p>
                     </div>
                 </div>
              </div>
@@ -859,6 +962,12 @@
                     <nav aria-label="頁尾連結" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 shrink-0">
                         <a href="#shopping-rules" class="hover:text-brand-800 transition-colors">購物須知</a>
                         <a href="privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-brand-800 transition-colors">隱私權政策</a>
+<a href="anti-fraud.html"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="hover:text-brand-800 transition-colors">
+    防詐騙宣導
+</a>
                     </nav>
                 </div>
             </div>
