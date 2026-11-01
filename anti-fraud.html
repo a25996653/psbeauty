@@ -103,7 +103,28 @@
     }
     @media(max-width:360px){ .brand-name { font-size:14px; } .back-link { font-size:11px; } }
     @media(prefers-reduced-motion: reduce){ html { scroll-behavior:auto; } .action { transition:none; } }
-  </style>
+
+    /* 置頂列中央的日本代購 GIF 動畫 */
+    .ps-navbar-animation { display:none; flex:0 1 365px; min-width:0; align-items:center; justify-content:center; pointer-events:none; }
+    .ps-navbar-animation img { display:block; width:100%; height:auto; max-height:70px; object-fit:contain; }
+    @media(min-width:900px){ .ps-navbar-animation { display:flex; } }
+  
+        /* 前台防複製保護：與 Wee~Haru 工作室相同的基本防護方式 */
+        body, body * {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        img {
+            -webkit-user-drag: none;
+            user-drag: none;
+            -webkit-touch-callout: none;
+        }
+        /* 如未來設置可複製資訊框或輸入欄位，仍可正常使用 */
+        .copy-box, .copy-box *, input, textarea, [contenteditable="true"], [contenteditable="true"] * {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+    </style>
 </head>
 <body>
   <header class="site-header">
@@ -112,6 +133,10 @@
         <img src="logo.png" alt="PSの貼心日和所 LOGO" class="brand-logo" width="42" height="42">
         <span class="brand-name">PSの貼心日和所</span>
       </a>
+      <!-- 中央留白放入日本代購 GIF 動畫 -->
+      <div class="ps-navbar-animation" aria-hidden="true">
+        <img src="psbeauty-header.gif" alt="" width="1600" height="335" decoding="async">
+      </div>
       <a class="back-link" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> 回首頁</a>
     </div>
   </header>
@@ -191,7 +216,7 @@
           </div>
         </section>
 
-        <div class="closing"><b>PSの貼心日和所</b><br>感謝每位顧客的信任，願我們一起守護個人資訊與交易安全♡</div>
+        <div class="closing"><b>PSの貼心日和所</b><br>感謝每位顧客的信任，願我們一起守護個人資訊與交易安全。♡</div>
       </article>
     </div>
   </main>
@@ -212,5 +237,42 @@
   <script>
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
   </script>
+
+    <!-- 前台防複製保護：限制一般選取、複製、右鍵、圖片拖曳與儲存快捷鍵 -->
+    <script>
+    (function () {
+        'use strict';
+        var copyAreas = '.copy-box, input, textarea, [contenteditable="true"]';
+
+        function allowCopy(target) {
+            var el = (target && target.nodeType === 1) ? target : target && target.parentElement;
+            return !!(el && typeof el.closest === 'function' && el.closest(copyAreas));
+        }
+
+        // 保留可複製區、輸入框的正常操作。
+        document.addEventListener('contextmenu', function (event) {
+            if (!allowCopy(event.target)) event.preventDefault();
+        });
+        document.addEventListener('copy', function (event) {
+            if (!allowCopy(event.target)) event.preventDefault();
+        });
+        document.addEventListener('cut', function (event) {
+            if (!allowCopy(event.target)) event.preventDefault();
+        });
+        document.addEventListener('dragstart', function (event) {
+            var el = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
+            if (el && el.closest && el.closest('img')) event.preventDefault();
+        });
+        document.addEventListener('keydown', function (event) {
+            if (!(event.ctrlKey || event.metaKey) || event.altKey) return;
+            var key = (event.key || '').toLowerCase();
+            if (key === 's' || key === 'u') {
+                event.preventDefault();
+            } else if ((key === 'c' || key === 'x') && !allowCopy(event.target)) {
+                event.preventDefault();
+            }
+        });
+    }());
+    </script>
 </body>
 </html>
