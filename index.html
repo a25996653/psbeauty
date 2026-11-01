@@ -253,6 +253,44 @@
             .ps-sakura { opacity: .33; }
         }
 
+
+        /* 頁首置頂列：日本代購小動畫（桌機空白區，不壓到導覽選單） */
+        .ps-navbar-animation {
+            display: none;
+            flex: 0 1 315px;
+            min-width: 0;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .ps-navbar-animation img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 78px;
+            object-fit: contain;
+        }
+        /* 平板與手機優先維持品牌名稱及選單空間 */
+        @media (min-width: 1280px) {
+            .ps-navbar-animation { display: flex; }
+        }
+    
+        /* 前台防複製保護：與 Wee~Haru 工作室相同的基本防護方式 */
+        body, body * {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        img {
+            -webkit-user-drag: none;
+            user-drag: none;
+            -webkit-touch-callout: none;
+        }
+        /* 如未來設置可複製資訊框或輸入欄位，仍可正常使用 */
+        .copy-box, .copy-box *, input, textarea, [contenteditable="true"], [contenteditable="true"] * {
+            -webkit-user-select: text;
+            user-select: text;
+        }
     </style>
 </head>
 <body class="bg-brand-50 flex flex-col min-h-screen bg-noise relative">
@@ -286,6 +324,10 @@
                         </a>
                     </div>
 <p class="text-brand-accent font-serif tracking-widest text-xs ml-[3.25rem]">與我們一起，讓美麗成為習慣❤️</p>
+                </div>
+                <!-- GIF 放在置頂導覽列中間的留白位置 -->
+                <div class="ps-navbar-animation" aria-hidden="true">
+                    <img src="psbeauty-header.gif" alt="" width="1600" height="335" decoding="async">
                 </div>
 <nav class="hidden md:flex space-x-8 lg:space-x-10 items-center z-10">
                     <a href="#concept" class="nav-link text-brand-800 hover:text-brand-600 px-2 py-2 text-sm tracking-widest transition-colors">品牌理念</a>
@@ -1105,5 +1147,42 @@
         });
     </script>
 
+
+    <!-- 前台防複製保護：限制一般選取、複製、右鍵、圖片拖曳與儲存快捷鍵 -->
+    <script>
+    (function () {
+        'use strict';
+        var copyAreas = '.copy-box, input, textarea, [contenteditable="true"]';
+
+        function allowCopy(target) {
+            var el = (target && target.nodeType === 1) ? target : target && target.parentElement;
+            return !!(el && typeof el.closest === 'function' && el.closest(copyAreas));
+        }
+
+        // 保留可複製區、輸入框的正常操作。
+        document.addEventListener('contextmenu', function (event) {
+            if (!allowCopy(event.target)) event.preventDefault();
+        });
+        document.addEventListener('copy', function (event) {
+            if (!allowCopy(event.target)) event.preventDefault();
+        });
+        document.addEventListener('cut', function (event) {
+            if (!allowCopy(event.target)) event.preventDefault();
+        });
+        document.addEventListener('dragstart', function (event) {
+            var el = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
+            if (el && el.closest && el.closest('img')) event.preventDefault();
+        });
+        document.addEventListener('keydown', function (event) {
+            if (!(event.ctrlKey || event.metaKey) || event.altKey) return;
+            var key = (event.key || '').toLowerCase();
+            if (key === 's' || key === 'u') {
+                event.preventDefault();
+            } else if ((key === 'c' || key === 'x') && !allowCopy(event.target)) {
+                event.preventDefault();
+            }
+        });
+    }());
+    </script>
 </body>
 </html>
