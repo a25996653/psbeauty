@@ -32,6 +32,83 @@
     const parsed=new DOMParser().parseFromString(prepared,'text/html');
     return (parsed.body.textContent||'').replace(/\n[ \t]*\n[ \t]*\n/g,'\n\n').trim();
   }
+  // Reconstruct only approved rich-text nodes; never inject PocketBase HTML with innerHTML.
+  function safeArticleDocument(content){
+    const root=el('div',{class:'ps-article-richtext'});
+    const parsed=new DOMParser().parseFromString(String(content||''),'text/html');
+    const allow=new Set(['p','div','span','h2','h3','h4','strong','b','em','i','u','s','br','blockquote','ul','ol','li','a','img','figure','figcaption','hr','mark']);
+    function url(v){
+      if(!v||typeof v!=='string')return '';
+      try{const u=new URL(v,location.href);
+        if(u.protocol!=='https:'&&!(u.origin===location.origin&&u.protocol==='http:'))return '';
+        if(u.username||u.password)return '';
+        return u.href;
+      }catch{return '';}
+    }
+    function styleValue(raw){
+      return String(raw||'').split(';').map(x=>x.trim()).filter(v=>{
+        const m=v.match(/^([a-z-]+)\s*:\s*(.+)$/i);if(!m)return false;
+        const key=m[1].toLowerCase(),value=m[2].toLowerCase();
+        return (['color','background-color'].includes(key)&&/^(#[0-9a-f]{3,8}|rgb\(\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*\))$/.test(value))||(key==='text-align'&&['left','right','center','justify'].includes(value));
+      }).join(';');
+    }
+    function build(node){
+      if(node.nodeType===Node.TEXT_NODE)return document.createTextNode(node.textContent||'');
+      if(node.nodeType!==Node.ELEMENT_NODE)return document.createDocumentFragment();
+      const tag=node.tagName.toLowerCase();
+      if(['script','style','iframe','object','embed','svg','form','math','template'].includes(tag))return document.createDocumentFragment();
+      if(tag==='div'&&node.getAttribute('data-ps-video')){
+        const candidate=url(node.getAttribute('data-ps-video'));
+        const u=candidate?new URL(candidate):null;
+        if(!u||u.hostname!=='www.youtube-nocookie.com'||!/^\/embed\/[A-Za-z0-9_-]{11}$/.test(u.pathname))return document.createDocumentFragment();
+        const box=el('div',{class:'ps-rich-video'}),frame=el('iframe');
+        frame.src=`https://www.youtube-nocookie.com${u.pathname}`;frame.title='文章中的 YouTube 影片';
+        frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';
+        frame.allow='accelerometer; encrypted-media; gyroscope; picture-in-picture';frame.allowFullscreen=true;
+        box.append(frame);return box;
+      }
+      if(!allow.has(tag)){
+        const frag=document.createDocumentFragment();
+        for(const child of node.childNodes)frag.append(build(child));
+        return frag;
+      }
+      const out=el(tag);const style=styleValue(node.getAttribute('style'));
+      if(style)out.setAttribute('style',style);
+      if(tag==='a'){
+        const href=url(node.getAttribute('href'));
+        if(href){out.href=href;out.target='_blank';out.rel='noopener noreferrer';}
+      }else if(tag==='img'){
+        const src=url(node.getAttribute('src'));
+        if(!src)return document.createDocumentFragment();
+        out.src=src;out.alt=String(node.getAttribute('alt')||'文章圖片').slice(0,180);out.loading='lazy';out.decoding='async';
+        return out;
+      }
+      for(const child of node.childNodes)out.append(build(child));
+      return out;
+    }
+    for(const child of parsed.body.childNodes)root.append(build(child));
+    return root;
+  }
+  function articleStyle(){
+    if(document.getElementById('ps-article-rich-style'))return;
+    const style=document.createElement('style');style.id='ps-article-rich-style';
+    style.textContent=`
+    .ps-article-richtext{font-size:15px;line-height:1.9;color:#423b33;max-width:100%;overflow-wrap:anywhere}
+    .ps-article-richtext p{white-space:pre-wrap;margin:.8em 0}
+    .ps-article-richtext h2,.ps-article-richtext h3,.ps-article-richtext h4{color:#795439;line-height:1.5;margin:1.3em 0 .5em}
+    .ps-article-richtext blockquote{margin:1.2em 0;background:#fbf3e9;border-left:4px solid #c6a78b;padding:12px 16px}
+    .ps-article-richtext a{color:#356d9c;text-decoration:underline;overflow-wrap:anywhere}
+    .ps-article-richtext img{display:block;max-width:100%;height:auto;margin:18px auto;border-radius:10px}
+    .ps-article-richtext figure{margin:16px auto;max-width:100%}
+    .ps-article-richtext figcaption{font-size:12px;color:#897568;text-align:center}
+    .ps-article-richtext ul,.ps-article-richtext ol{padding-left:1.6em}
+    .ps-article-richtext .ps-rich-video{max-width:100%;width:100%;aspect-ratio:16/9;margin:18px auto}
+    .ps-article-richtext iframe{width:100%;height:100%;border:0;border-radius:10px}
+    .ps-article-richtext hr{border:0;border-top:1px solid #e1d4c8;margin:24px 0}
+    .ps-article-richtext mark{background:#fff0a7}
+    `;
+    document.head.append(style);
+  }
   const modeText = mode => mode==='stock'?'現貨商品':mode==='sold_out'?'暫無現貨':'推薦預購';
   const actionText = mode => mode==='stock'?'前往賣場':mode==='sold_out'?'詢問補貨':'詢問預購';
   function el(tag, attrs={}, text) {
@@ -78,10 +155,11 @@
     const wrap=el('div',{class:'ps-dialog-content'});
     wrap.append(el('p',{class:'ps-dialog-meta'},[item.category,isArticle?'文章分享':modeText(item.sale_mode)].filter(Boolean).join(' · ')),el('h2',{id:'ps-dialog-heading'},item.title));
     const body=String(isArticle?(item.content_text||item.summary||''):(item.description||item.summary||''));
-    if(body) wrap.append(el('p',{},body));
+    if(isArticle && item.content_html) wrap.append(safeArticleDocument(item.content_html));
+    else if(body) wrap.append(el('p',{},body));
     if(!isArticle && Array.isArray(item.gallery_urls) && item.gallery_urls.length){
       const gallery=el('div',{class:'ps-dialog-gallery'});
-      for(const raw of item.gallery_urls.slice(0,8)){const u=safeUrl(raw);if(!u)continue;
+      for(const raw of item.gallery_urls.slice(0,9)){const u=safeUrl(raw);if(!u)continue;
         const photo=el('img');photo.src=u;photo.alt=(item.title||'商品')+' 詳細介紹圖片';photo.loading='lazy';gallery.append(photo);}
       if(gallery.childNodes.length)wrap.append(gallery);
     }
@@ -132,6 +210,7 @@
     }
   }
   function setup(){
+    articleStyle();
     byId('ps-dialog-close')?.addEventListener('click',()=>byId('ps-content-dialog')?.close());
     byId('ps-content-dialog')?.addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close();});
     document.querySelectorAll('[data-product-filter]').forEach(b=>b.addEventListener('click',()=>{
@@ -148,7 +227,7 @@
   }
   function normalizeArticle(a){
     if(!a||a.published!==true||!a.title)return null;
-    return {id:String(a.id||''),title:String(a.title),category:categoryLabel(a.category),summary:readableText(a.summary||''),content_text:readableText(a.content_text||''),cover_url:safeUrl(a.cover_url),published_at:String(a.published_at||'').slice(0,10),published:true};
+    return {id:String(a.id||''),title:String(a.title),category:categoryLabel(a.category),summary:readableText(a.summary||''),content_text:readableText(a.content_text||''),content_html:String(a.content_html||''),cover_url:safeUrl(a.cover_url),published_at:String(a.published_at||'').slice(0,10),published:true};
   }
   async function load(){
     const feedUrl=safeUrl(opts.publicFeedUrl);
