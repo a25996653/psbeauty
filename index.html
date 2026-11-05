@@ -362,7 +362,59 @@
         .ps-dialog-shop:hover{background:#756353;}
         @media(max-width:767px){.ps-showcase .ps-section-heading{flex-direction:column;align-items:start;gap:15px}.ps-journal-mark{display:none}.ps-card-title{min-height:0}.ps-dialog-content{padding:22px 20px 28px}.ps-dialog-content h2{font-size:21px}}
         @media (min-width:1280px) and (max-width:1499px){#navbar .ps-navbar-animation{max-width:135px;min-width:80px;}}
-        @media (max-width:1279px){#navbar .ps-navbar-animation{display:none}}
+        /* 2026/11/05：保留原創頁首 GIF，手機／平板／縮小視窗皆顯示。
+           小螢幕改為品牌列下方獨立一列，避免壓到漢堡選單。 */
+        @media (max-width: 1279px) {
+          #navbar > .max-w-7xl > .flex {
+            display: grid;
+            grid-template-columns: minmax(0,1fr) auto;
+            grid-template-rows: auto auto;
+            align-items: center;
+            column-gap: 8px;
+            row-gap: 3px;
+            height: auto;
+            min-height: 96px;
+            padding: 10px 0 7px;
+          }
+          #navbar > .max-w-7xl > .flex > .flex-shrink-0 {
+            min-width: 0;
+            grid-column: 1;
+            grid-row: 1;
+          }
+          #navbar > .max-w-7xl > .flex > div:last-child {
+            grid-column: 2;
+            grid-row: 1;
+            justify-self: end;
+          }
+          #navbar .ps-navbar-animation {
+            display: flex;
+            grid-column: 1 / -1;
+            grid-row: 2;
+            justify-self: center;
+            flex: none;
+            width: min(100%, 340px);
+            max-width: 100%;
+            min-width: 0;
+            margin: 0;
+            overflow: visible;
+          }
+          #navbar .ps-navbar-animation img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 76px;
+            object-fit: contain;
+          }
+        }
+        @media (max-width: 640px) {
+          #navbar .ps-navbar-animation { width: min(90%, 280px); }
+          #navbar .ps-navbar-animation img { max-height: 65px; }
+        }
+        @media (max-width: 390px) {
+          #navbar .flex-shrink-0 .items-center.gap-3 { gap: 7px; }
+          #navbar .flex-shrink-0 a { font-size: clamp(17px, 5vw, 21px); letter-spacing: .035em; }
+          #navbar .flex-shrink-0 p { font-size: 10px; margin-left: 2.95rem; letter-spacing: .04em; }
+        }
 
     </style>
 </head>
